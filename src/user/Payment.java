@@ -1,6 +1,10 @@
 package user;
 
 public class Payment {
-	int n;
-	int nn;
+	
+	boolean pay(double amount) {
+		//it is demo for now
+		return true;
+	}
+	
 }
