@@ -1,10 +1,5 @@
 package user;
 
-public class Payment {
-	
-	boolean pay(double amount) {
-		//it is demo for now
-		return true;
-	}
-	
+public interface Payment {
+	boolean pay(double amount) ;
 }
