@@ -1,6 +1,9 @@
 
 package service;
 
-public interface Service {
+public abstract class Service {
+    abstract public void setInfo();
+
+    abstract public void hi();
 
 }

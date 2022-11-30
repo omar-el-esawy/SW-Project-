@@ -1,6 +1,6 @@
 package service;
 
-public class LandlineService extends Service {
+public class InternetPaymentService extends Service {
     @Override
     public void setInfo() {
         // TODO Auto-generated method stub
@@ -9,6 +9,7 @@ public class LandlineService extends Service {
 
     @Override
     public void hi() {
-        System.out.println("LandlineService");
+        System.out.println("InternetPaymentService");
+
     }
 }
