@@ -7,7 +7,7 @@ public class DonationService extends Service {
 
     }
 
-    @Override
+
     public void hi() {
         System.out.println("DonationService");
 

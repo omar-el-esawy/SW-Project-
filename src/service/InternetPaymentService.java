@@ -6,8 +6,6 @@ public class InternetPaymentService extends Service {
         // TODO Auto-generated method stub
 
     }
-
-    @Override
     public void hi() {
         System.out.println("InternetPaymentService");
 

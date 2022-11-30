@@ -7,7 +7,6 @@ public class LandlineService extends Service {
 
     }
 
-    @Override
     public void hi() {
         System.out.println("LandlineService");
     }
