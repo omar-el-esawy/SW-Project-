@@ -6,10 +6,7 @@ public class MobileRechargeService extends Service {
         // TODO Auto-generated method stub
 
     }
-
-    @Override
     public void hi() {
         System.out.println("MobileRechargeService");
-
     }
 }
