@@ -16,7 +16,7 @@ public class Main {
 		if(home()==1)
 		{
 			while(true) {
-				//doha zh2t
+				//doha zh2ttttt
 				System.out.println("Press 1. to Log In");
 				System.out.println("Press 2. to Sign Up");
 				int option = cin.nextInt();
