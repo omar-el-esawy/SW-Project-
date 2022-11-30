@@ -10,23 +10,15 @@ public class Register {
 	}
 	public boolean signUp(String userName,String email,String password) {
 		
-		if(!saveData.userData.containsKey(email)) {
+		if(!saveData.userData.containsKey(email) && !saveData.userData.containsKey(userName)) {
 			User user = new User(email,password); 
 			saveData.userData.put(email, user);
+			saveData.userData.put(userName, user);
 			return true;
 		}
 		else return false;
 	}
 	
-	/*public boolean login(String email,String password)
-	{
-		if(saveData.savedAccounts.containsKey(email)&&(saveData.savedAccounts.get(email)).equals(password))
-		{
-		
-			return true;
-		}
-		else return false;
-		
-	}*/
+
 	
 }
