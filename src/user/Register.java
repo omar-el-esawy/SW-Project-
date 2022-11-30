@@ -8,12 +8,12 @@ public class Register {
 	public Register(){
 		saveData = SavedData.getObj();
 	}
-	public boolean SignUp(String username,String email,String password) {
+	public boolean signUp(String username,String email,String password) {
 		
 		if(!saveData.userData.containsKey(username) && !saveData.userData.containsKey(email)) {
-			
-			saveData.userData.put(username, password);
-			saveData.userData.put(email, password);
+			User user = new User(email,password); 
+			saveData.userData.put(username, user);
+			saveData.userData.put(email, user);
 			return true;
 		}
 		else return false;

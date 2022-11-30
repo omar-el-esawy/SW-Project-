@@ -1,12 +1,11 @@
 package Data;
-
+import user.*;
 import java.util.*;
-import java.lang.*;
 
 public class SavedData {
 	
 	private SavedData() {}
-	public Map<String, String> userData = new HashMap<String, String>();
+	public Map<String, User> userData = new HashMap<String, User>();
 	private static SavedData savedData = null;
 	
 	public static SavedData getObj(){

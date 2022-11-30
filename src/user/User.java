@@ -4,7 +4,13 @@ public class User {
 	String email; 
 	String passwrod;
 	CreditCard myCrditCard;
-	int dd =0 ; 
+	Wallet myWallet;
+	public User(String email,String password) {
+		this.email = email;
+		this.passwrod = password;
+		myWallet = new Wallet();
+		myCrditCard = new CreditCard();
+	}
 //	Services[] completeServices;
 	
 //	searchService(){}
