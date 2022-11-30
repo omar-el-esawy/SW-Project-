@@ -3,7 +3,7 @@ package user;
 public class User {
 	String email; 
 	String passwrod;
-//	CreditCard myCrditCard;
+	CreditCard myCrditCard;
 //	Services[] completeServices;
 	
 //	searchService(){}
