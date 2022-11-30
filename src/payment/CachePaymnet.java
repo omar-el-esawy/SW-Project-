@@ -1,4 +1,4 @@
-package user;
+package payment;
 
 public class CachePaymnet implements Payment{
 

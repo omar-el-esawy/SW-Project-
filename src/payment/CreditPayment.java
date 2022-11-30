@@ -1,6 +1,6 @@
-package user;
+package payment;
 
-public class WalletPayment implements Payment{
+public class CreditPayment implements Payment {
 
 	@Override
 	public boolean pay(double amount) {
