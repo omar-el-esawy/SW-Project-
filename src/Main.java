@@ -18,12 +18,9 @@ public class Main {
 					System.out.println("Enter your email,username and password");
 					String email = cin.next(),username = cin.next(),password = cin.next();
 					success = register.SignUp(username,email,password);
-<<<<<<< HEAD
+
 					if(!success)System.out.println("username or eamil are used!, please try again");
-=======
-					
-					if(!success)System.out.println(("username or eamil are used!, please try again"));
->>>>>>> 5fe2a46d086bd24594c6547426c9b38f672c6823
+
 				}
 				
 			}
