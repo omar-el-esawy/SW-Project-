@@ -25,11 +25,11 @@ public class Main {
 					boolean success = false;
 					while(!success) {
 						
-						System.out.println("Enter your email and password");
-						String email = cin.next(),password = cin.next();
-						success = register.signUp(email,password);
+						System.out.println("Enter your user email and password");
+						String email = cin.next(), user=cin.next(),password = cin.next();
+						success = register.signUp(user,email,password);
 
-						if(!success)System.out.println(" eamil are used!, please try again");
+						if(!success)System.out.println(" eamil or userName are used!, please try again");
 
 					}
 					
@@ -42,7 +42,6 @@ public class Main {
 						
 						System.out.println("Enter your email,and password");
 						String email = cin.next(),password = cin.next();
-						success= register.login(email,password);
 						if(!success)System.out.println(" eamil or password not correct!, please try again");
 						
 				}
