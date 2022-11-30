@@ -8,14 +8,25 @@ public class Register {
 	public Register(){
 		saveData = SavedData.getObj();
 	}
-	public boolean signUp(String username,String email,String password) {
+	public boolean signUp(String email,String password) {
 		
-		if(!saveData.userData.containsKey(username) && !saveData.userData.containsKey(email)) {
+		if(!saveData.userData.containsKey(email)) {
+			saveData.savedAccounts.put(email,password);
 			User user = new User(email,password); 
-			saveData.userData.put(username, user);
 			saveData.userData.put(email, user);
 			return true;
 		}
 		else return false;
 	}
+	
+	public boolean login(String email,String password)
+	{
+		if((saveData.savedAccounts.get(email)).equals(password)) {
+		
+			return true;
+		}
+		else return false;
+		
+	}
+	
 }
