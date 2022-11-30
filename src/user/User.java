@@ -4,6 +4,7 @@ public class User {
 	String email; 
 	String passwrod;
 	CreditCard myCrditCard;
+	int dd =0 ; 
 //	Services[] completeServices;
 	
 //	searchService(){}
