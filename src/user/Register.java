@@ -21,7 +21,8 @@ public class Register {
 	
 	public boolean login(String email,String password)
 	{
-		if((saveData.savedAccounts.get(email)).equals(password)) {
+		if(saveData.savedAccounts.containsKey(email)&&(saveData.savedAccounts.get(email)).equals(password))
+		{
 		
 			return true;
 		}
