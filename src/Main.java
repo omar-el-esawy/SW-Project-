@@ -15,7 +15,6 @@ public class Main {
 					String email = cin.next(), user=cin.next(),password = cin.next();
 					Account account=new Account(user,email,password);
 					invoker.setCommand(new Register(account));
-					//Command register =new Register(account);
 					success=invoker.doAction();
 					if(!success)System.out.println(" eamil or userName are used!, please try again");
 			}	
