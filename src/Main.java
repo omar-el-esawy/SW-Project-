@@ -3,45 +3,41 @@ import user.*;
 import Screen.*;
 public class Main {
 	static Scanner cin = new Scanner(System.in);
-	static void userSteps() {
+	static void userSteps(){
 		while(true) {
-			//doha zh2ttttt
 			UI.loginOrSignUp();
 			int option = cin.nextInt();
-		if(option==2) {
-			Register register = new Register();
-			boolean success = false;
-			while(!success) {
-				
-				System.out.println("Enter your user email and password");
-				String email = cin.next(), user=cin.next(),password = cin.next();
-				success = register.signUp(user,email,password);
-
-				if(!success)System.out.println(" eamil or userName are used!, please try again");
-
-			}
-			
-		}
-		else if(option==1)
-		{
-			Account account = new Account();
-			boolean success = false;
-			while(!success) {
-				
-				System.out.println("Enter your email,and password");
-				String email = cin.next(),password = cin.next();
-				success = account.login(email, password);
-				if(!success)System.out.println(" eamil or password not correct!, please try again");
-				
-			}
-			while(true) {
-				UI.userOptions();
-				int userChoice=cin.nextInt();
-				if(userChoice==5)appSteps();
-			}
+			Invoker invoker=new Invoker();
+			if(option==2) {
+				boolean success = false;
+				while(!success) {
+					System.out.println("Enter your user email and password");
+					String email = cin.next(), user=cin.next(),password = cin.next();
+					Account account=new Account(user,email,password);
+					invoker.setCommand(new Register(account));
+					//Command register =new Register(account);
+					success=invoker.doAction();
+					if(!success)System.out.println(" eamil or userName are used!, please try again");
+			}	
+				}
+			else if(option==1)
+			{
+				boolean success = false;
+				while(!success) {
+					System.out.println("Enter your email,and password");
+					String email_userName = cin.next(),password = cin.next();
+					Account account=new Account(email_userName,email_userName,password);
+					invoker.setCommand(new Login(account));
+					success = invoker.doAction();
+					if(!success)System.out.println(" eamil or password not correct!, please try again");
+				}
+				while(true) {
+					UI.userOptions();
+					int userChoice=cin.nextInt();
+					if(userChoice==5)appSteps();
+				}
 
 			}
-
 		}	
 	}
 	static void appSteps() {
