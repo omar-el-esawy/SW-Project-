@@ -1,8 +1,8 @@
 package service;
 
-public abstract class Decorator extends Service{
+public abstract class ServiceDecorator extends Service{
     Service service;
-    Decorator(Service service){
+    ServiceDecorator(Service service){
         this.service= service;
     }
     @Override
