@@ -1,6 +1,6 @@
 package payment;
 
-public class CachePaymnet implements Payment{
+public class CashPaymnet implements Payment{
 
 	@Override
 	public boolean pay(double amount) {

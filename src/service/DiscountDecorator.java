@@ -14,8 +14,16 @@ public class DiscountDecorator extends ServiceDecorator{
         this.discount=discount/100.0;
     }
 
-    public void setInfo() {
-        service.setInfo();
+    
+    void setPayment() {
+    	service.setPayment();
+    	// TODO Auto-generated method stub
+    	
     }
-
+   
+    void setProvider() {
+    	service.setProvider();
+    	// TODO Auto-generated method stub
+    	
+    }
 }
