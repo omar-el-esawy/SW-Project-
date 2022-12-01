@@ -1,6 +1,6 @@
 package service;
 
-public class DiscountDecorator extends Decorator{
+public class DiscountDecorator extends ServiceDecorator{
     public DiscountDecorator(Service service) {
         super(service);
     }
