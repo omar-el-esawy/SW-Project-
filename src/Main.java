@@ -1,5 +1,6 @@
 import java.util.*;
 
+import Data.SavedData;
 import Screen.Invoker;
 import Screen.Login;
 import Screen.Register;
@@ -41,13 +42,11 @@ public class Main {
 					UI.userOptions();
 					int userChoice=cin.nextInt();
 					if(userChoice==1) {
-						ServiceFactory serviceFactory =new ServiceFactory();
-						System.out.println(Account.user.getMyWallet().getBalance());
-						Account.user.getMyWallet().add(20);
-						System.out.println(Account.user.getMyWallet().getBalance());
-
-						Service service = serviceFactory.create("1");
-						service.serve();
+						//ServiceFactory serviceFactory =new ServiceFactory();
+						//System.out.println(Account.user.getMyWallet().getBalance());
+						//Account.user.getMyWallet().add(20);
+						//System.out.println(Account.user.getMyWallet().getBalance());
+						SavedData.getObj().services.get("Mobile Recharge").serve();;
 					}
 					if(userChoice==5)appSteps();
 				}
