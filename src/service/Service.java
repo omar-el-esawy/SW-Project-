@@ -7,6 +7,8 @@ public abstract class Service {
     Payment payment=new CreditPayment();
     Double discount=0.0;
     String provider;
+    public boolean isRequestedToReFund; 
+    
     abstract void setPayment();
     abstract void setProvider();
 
