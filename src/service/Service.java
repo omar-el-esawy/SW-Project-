@@ -29,17 +29,9 @@ public abstract class Service {
 	}
    
     void setPayment() {
- 		Scanner cin = new Scanner(System.in);
-		System.out.println("Choose Payment Way:");
-		System.out.println("Press 1. Credit Card");
-		System.out.println("Press 2. Wallet");
-		if(getCash())
-			System.out.println("Press 3. Cach");		
-		String paymentType=cin.next();
 		PaymentFactory paymentFactory=new PaymentFactory();
-		this.payment=paymentFactory.create(paymentType);
+		this.payment=paymentFactory.create(getCash());
     				
-    	
     }
 
     abstract void setProvider();
