@@ -11,9 +11,6 @@ public class WalletPayment implements Payment{
 		System.out.println("Enter The Amount: ");
 		double  amount= new Scanner(System.in).nextDouble();
 		double amountAfterDiscounts = (1-discount)*amount;
-		
-		System.out.println(Account.user.getMyWallet().getBalance());
-		System.out.println(amountAfterDiscounts);
 
 		if(Account.user.getMyWallet().getBalance()>=amountAfterDiscounts) {
 			
