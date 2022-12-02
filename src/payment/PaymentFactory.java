@@ -1,7 +1,17 @@
 package payment;
 
+import java.util.Scanner;
+
 public class PaymentFactory {
-	public Payment create(String paymentType) {
+	public Payment create(boolean cach) {
+		
+		
+		System.out.println("Choose Payment Way:");
+		System.out.println("Press 1. Credit Card");
+		System.out.println("Press 2. Wallet");
+		if(cach)
+			System.out.println("Press 3. Cach");		
+		String paymentType= new Scanner(System.in).next();
 		
 		if(paymentType.equals("1")) 
 			return new CreditPayment();

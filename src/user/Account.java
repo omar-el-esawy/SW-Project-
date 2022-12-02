@@ -14,13 +14,13 @@ public class Account {
 		this.userEmail=userEmail;
 		this.password=password;
 	}
-	public boolean login(String userOrEmail,String password)
+	public boolean login(String email,String password)
 	{
 		
-		if(saveData.userData.containsKey(userOrEmail))
+		if(saveData.userData.containsKey(email))
 		{
-			user = saveData.userData.get(userOrEmail) ;
-			user.completeServices = saveData.usersCompleteService.get(userOrEmail);
+			user = saveData.userData.get(email) ;
+			user.completeServices = saveData.usersCompleteService.get(email);
 			if(user.passwrod.equals(password))
 				return true;
 			else 

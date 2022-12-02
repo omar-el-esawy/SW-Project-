@@ -15,13 +15,17 @@ public class SavedData {
 		services.put("Internet Payment", new InternetPaymentService());
 		services.put("Landline", new InternetPaymentService());
 		services.put("Donation", new InternetPaymentService());
-
-
+	}
+	public Map<Integer,Service> getUsersCompleteService() {
+		return usersCompleteService.get(Account.user.email);
+	}
+	void setUsersCompleteService(Map<Integer,Service> userCompliete) {
+		usersCompleteService.put(Account.user.email,userCompliete);
 	}
 	public Map<String, User> userData = new HashMap<String, User>();
 
 //	public Map<String,ArrayList<Service>> usersCompleteService = new HashMap<String,ArrayList<Service>>(); 
-	public Map<String, Map<String,Service>> usersCompleteService = new HashMap<String,Map<String,Service>>(); 
+	private Map<String, Map<Integer,Service>> usersCompleteService = new HashMap<String,Map<Integer,Service>>(); 
 
 
 	public Map<String, Service> services = new HashMap<String, Service>();

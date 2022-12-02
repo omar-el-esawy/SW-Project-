@@ -2,11 +2,11 @@ package provider;
 
 import java.util.Scanner;
 
-public class MobileProviderFactory implements ServiceProviderFactory {
+public class InternetProviderFactory implements ServiceProviderFactory{
+
 	@Override
 	public ServiceProvider create() {
-		
-		
+
 		System.out.println("Choose Your Service Provider:");
 		System.out.println("Press 1. Etisalat");
 		System.out.println("Press 2. Vodafone");
@@ -25,4 +25,5 @@ public class MobileProviderFactory implements ServiceProviderFactory {
 		}
 		return null;
 	}
+
 }

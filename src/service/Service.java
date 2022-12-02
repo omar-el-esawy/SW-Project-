@@ -5,10 +5,11 @@ import java.util.Scanner;
 import payment.*;
 
 public abstract class Service {
-
-	int id;
-	public void setId(int id) {
-		this.id = id;
+	static int idGenrator = 1;
+	public int id;
+	public Service (){
+		this.id = idGenrator++;
+		
 	}
 	public int getId() {
 		return id;
@@ -29,17 +30,9 @@ public abstract class Service {
 	}
    
     void setPayment() {
- 		Scanner cin = new Scanner(System.in);
-		System.out.println("Choose Payment Way:");
-		System.out.println("Press 1. Credit Card");
-		System.out.println("Press 2. Wallet");
-		if(getCash())
-			System.out.println("Press 3. Cach");		
-		String paymentType=cin.next();
 		PaymentFactory paymentFactory=new PaymentFactory();
-		this.payment=paymentFactory.create(paymentType);
+		this.payment=paymentFactory.create(getCash());
     				
-    	
     }
 
     abstract void setProvider();
