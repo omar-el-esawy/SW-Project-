@@ -20,7 +20,7 @@ public class Account {
 		if(saveData.userData.containsKey(email))
 		{
 			user = saveData.userData.get(email) ;
-			user.completeServices = saveData.usersCompleteService.get(email);
+			//user.completeServices = saveData.usersCompleteService.get(email);
 			if(user.passwrod.equals(password))
 				return true;
 			else 
