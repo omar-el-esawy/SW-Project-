@@ -2,23 +2,31 @@ package user;
 
 public class CreditCard {
 
-	double balance;
+	double balance=0.0;
 	String cardNumber;
-	double getBalance()
+	public double getBalance()
 	{
 		return balance;
 	}
-	void setBalance(double balance)
+	public void add(double amount) {
+		balance+=amount;
+	}
+	public void spend(double amount) {
+		balance-=amount;
+	}
+	public void setBalance(double balance)
 	{
 		this.balance=balance;
 	}
-	String getCardNumber()
+	public String getCardNumber()
 	{
 		return cardNumber;
 	}
-	void setCardNumber(String cardNumber)
+	public void setCardNumber(String cardNumber)
 	{
 		this.cardNumber=cardNumber;
 	}
+	
+	
 	
 }

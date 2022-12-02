@@ -11,6 +11,12 @@ public class User {
 		myWallet = new Wallet();
 		myCrditCard = new CreditCard();
 	}
+	public Wallet getMyWallet() {
+		return myWallet;
+	}
+	public CreditCard getCard() {
+		return myCrditCard;
+	}
 //	Services[] completeServices;
 	
 //	searchService(){}
