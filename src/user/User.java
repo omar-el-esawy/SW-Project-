@@ -4,11 +4,12 @@ import java.util.*;
 import Data.SavedData;
 import service.*;
 public class User {
-	String email; 
+	public String email; 
 	String userName;
 	String passwrod;
 	CreditCard myCrditCard;
 	Wallet myWallet;
+	Map<Integer,Service> completeServices;
 	
 	public User(String email,String userName,String password) {
 		this.email = email;
@@ -19,8 +20,6 @@ public class User {
 		
 	}
 
-//	ArrayList<Service>
-	 Map<String,Service> completeServices;
 	public Wallet getMyWallet() {
 		return myWallet;
 	}
@@ -32,7 +31,6 @@ public class User {
 	void addCompeleteServices(Service service) {
 //		completeServices.add(service);
 		
-		SavedData.getObj().usersCompleteService.put(userName,completeServices);
 	}
 //	searchService(){}
 	
@@ -40,7 +38,6 @@ public class User {
 		Service service;
 		service = completeServices.get(ID);
 		service.isRequestedToReFund = true;
-		SavedData.getObj().usersCompleteService.put(userName,completeServices);
 
 	}
 	

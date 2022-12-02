@@ -5,10 +5,11 @@ import java.util.Scanner;
 import payment.*;
 
 public abstract class Service {
-
-	int id;
-	public void setId(int id) {
-		this.id = id;
+	static int idGenrator = 1;
+	public int id;
+	public Service (){
+		this.id = idGenrator++;
+		
 	}
 	public int getId() {
 		return id;
