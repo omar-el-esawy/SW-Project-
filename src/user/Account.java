@@ -7,7 +7,7 @@ public class Account {
 	public String userName;
 	public String password;
 	SavedData saveData;
-	User user; 
+	public static User  user; 
 	public Account(String userName,String userEmail,String password){
 		saveData = SavedData.getObj();
 		this.userName=userName;

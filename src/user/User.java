@@ -18,8 +18,16 @@ public class User {
 		myCrditCard = new CreditCard();
 		
 	}
+
 //	ArrayList<Service>
 	 Map<String,Service> completeServices;
+	public Wallet getMyWallet() {
+		return myWallet;
+	}
+	public CreditCard getCard() {
+		return myCrditCard;
+	}
+//	Services[] completeServices;
 	
 	void addCompeleteServices(Service service) {
 //		completeServices.add(service);

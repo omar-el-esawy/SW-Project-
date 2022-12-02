@@ -5,15 +5,15 @@ public class Wallet {
 	public Wallet() {
 		balance = 0;
 	}
-	void add() {
-		
+	public void add(double amount) {
+		balance+=amount;
 	}
 	
-	void spend (double amount ) {
-		
+	public void spend (double amount ) {
+		balance-=amount;
 	}
 	
-	double get() {
+	public double getBalance() {
 		return balance;
 	}
 }

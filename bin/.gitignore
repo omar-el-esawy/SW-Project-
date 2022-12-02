@@ -3,5 +3,9 @@
 /Screen/
 /service/
 /payment/
+<<<<<<< HEAD
 /admin/
+=======
+/provider/
+>>>>>>> d0e990e014b13799ba5153d205f1b37c42b30c88
 /Data/

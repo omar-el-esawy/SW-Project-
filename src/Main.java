@@ -1,6 +1,14 @@
 import java.util.*;
-import user.*;
-import Screen.*;
+
+import Data.SavedData;
+import Screen.Invoker;
+import Screen.Login;
+import Screen.Register;
+import Screen.UI;
+import service.Service;
+import service.ServiceFactory;
+import user.Account;
+
 public class Main {
 	static Scanner cin = new Scanner(System.in);
 	static void userSteps(){
@@ -33,8 +41,16 @@ public class Main {
 				while(true) {
 					UI.userOptions();
 					int userChoice=cin.nextInt();
+					if(userChoice==1) {
+						//ServiceFactory serviceFactory =new ServiceFactory();
+						//System.out.println(Account.user.getMyWallet().getBalance());
+						//Account.user.getMyWallet().add(20);
+						//System.out.println(Account.user.getMyWallet().getBalance());
+						SavedData.getObj().services.get("Mobile Recharge").serve();;
+					}
 					if(userChoice==5)appSteps();
 				}
+				
 
 			}
 		}	
@@ -61,6 +77,7 @@ public class Main {
 	public static void main(String[] args) {
 		
 		appSteps();
+		
 		
 	}
 
