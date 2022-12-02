@@ -8,6 +8,11 @@ import provider.ServiceProvider;
 import provider.ServiceProviderFactory;
 
 public class DonationService extends Service {
+	public DonationService()
+	{
+		name="DonationService";
+		
+	}
 
 @Override
 	void setProvider() {

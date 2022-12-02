@@ -25,20 +25,16 @@ public class User {
 	}
 	public CreditCard getCard() {
 		return myCrditCard;
-	}
-//	Services[] completeServices;
-	
+	}	
 	void addCompeleteServices(Service service) {
 //		completeServices.add(service);
 		
 	}
 //	searchService(){}
 	
-	void refund(String ID) {
-		Service service;
-		service = completeServices.get(ID);
-		service.isRequestedToReFund = true;
-
+	void refund(Integer ID) {
+		SavedData.getObj().refundServices.put(ID,Account.user);
+		
 	}
 	
 //	Discount[] showDiscounts(){}

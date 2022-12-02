@@ -7,18 +7,17 @@ import payment.*;
 public abstract class Service {
 	static int idGenrator = 1;
 	public int id;
+	public String name;
 	public Service (){
 		this.id = idGenrator++;
-		
 	}
 	public int getId() {
 		return id;
 	}
+	
     Payment payment=new CreditPayment();
     Double discount=0.0;
-    String provider;
-    public boolean isRequestedToReFund; 
-    
+    String provider;    
     
     boolean cash=false;
     

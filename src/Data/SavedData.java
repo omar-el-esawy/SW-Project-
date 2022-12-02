@@ -25,10 +25,11 @@ public class SavedData {
 	public Map<String, User> userData = new HashMap<String, User>();
 
 //	public Map<String,ArrayList<Service>> usersCompleteService = new HashMap<String,ArrayList<Service>>(); 
-	private Map<String, Map<Integer,Service>> usersCompleteService = new HashMap<String,Map<Integer,Service>>(); 
-
+	public  Map<String, Map<Integer,Service>> usersCompleteService = new HashMap<String,Map<Integer,Service>>(); 
 
 	public Map<String, Service> services = new HashMap<String, Service>();
+	
+	public Map<Integer,User> refundServices=new HashMap<Integer, User>();
 	
 
 	private static SavedData savedData = null;

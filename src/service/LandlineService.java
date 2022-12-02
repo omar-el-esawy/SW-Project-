@@ -9,6 +9,11 @@ import provider.ServiceProvider;
 import provider.ServiceProviderFactory;
 
 public class LandlineService extends Service {
+	public LandlineService()
+	{
+		name="LandlineService";
+		
+	}
 	
   @Override
 	void setProvider() {

@@ -8,7 +8,11 @@ import provider.ServiceProvider;
 import provider.ServiceProviderFactory;
 
 public class InternetPaymentService extends Service {
-
+	public InternetPaymentService()
+	{
+		name="InternetPaymentService";
+		
+	}
    @Override
 	void setProvider() {
 	   ServiceProviderFactory serviceProviderFactory =new InternetProviderFactory();
