@@ -41,9 +41,7 @@ public class Admin {
 		if(op==1) {
 			User user= obj.refundServices.get(id);
 			Map<Integer,Service> current=obj.usersCompleteService.get(user.email);
-//			current.get(id)
-			int x =5;
-			user.getMyWallet().add(x);
+			user.getMyWallet().add(current.get(id).cost);
 			obj.usersCompleteService.get(user.email).remove(id);
 		}
 		obj.refundServices.remove(id);

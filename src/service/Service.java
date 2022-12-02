@@ -6,11 +6,13 @@ import payment.*;
 import user.Account;
 
 public abstract class Service {
-	static int idGenrator = 1;
 	public int id;
 	public String name;
+	public double cost;
+	
 	public Service (){
-		this.id = idGenrator++;
+		id = 1; 
+		cost =0 ; 
 	}
 	public int getId() {
 		return id;
@@ -48,8 +50,14 @@ public abstract class Service {
         setPayment();
         setProvider();
         discount=getDiscounts();
-        payment.pay(discount);
-        Account.user.addCompeleteServices(this);
+        cost = payment.pay(discount);
+        
+        if(cost!=-1) {
+        	Account.user.addCompeleteServices(this);
+        	id++;	
+        }
+        else 
+        	cost =0;
 
     }
 

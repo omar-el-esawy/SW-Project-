@@ -13,8 +13,8 @@ public class SavedData {
 	private SavedData() {
 		services.put("Mobile Recharge", new MobileRechargeService());
 		services.put("Internet Payment", new InternetPaymentService());
-		services.put("Landline", new InternetPaymentService());
-		services.put("Donation", new InternetPaymentService());
+		services.put("Landline", new LandlineService());
+		services.put("Donation", new DonationService());
 	}
 	public Map<Integer,Service> getUsersCompleteService() {
 		return usersCompleteService.get(Account.user.email);
