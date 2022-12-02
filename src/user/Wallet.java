@@ -1,7 +1,7 @@
 package user;
 
 public class Wallet {
-	double balance; 
+    double balance; 
 	public Wallet() {
 		balance = 0;
 	}

@@ -17,7 +17,7 @@ public class User {
 		this.passwrod = password;
 		myWallet = new Wallet();
 		myCrditCard = new CreditCard();
-		
+		completeServices = new HashMap<Integer,Service>();
 	}
 
 	public Wallet getMyWallet() {
@@ -26,15 +26,20 @@ public class User {
 	public CreditCard getCard() {
 		return myCrditCard;
 	}	
-	void addCompeleteServices(Service service) {
-//		completeServices.add(service);
-		
+	public void addCompeleteServices(Service service) {
+		completeServices.put(service.id, service);
+		SavedData.getObj().setUsersCompleteService(completeServices);
 	}
 //	searchService(){}
-	
-	void refund(Integer ID) {
-		SavedData.getObj().refundServices.put(ID,Account.user);
+	public void showRefunds() {
+		for(Map.Entry<Integer,Service> current :completeServices.entrySet()) {
+			 System.out.println(current.getKey()+ " "  + current.getValue().name );
+		}
+	}
+	public void refund(Integer ID) {
 		
+		SavedData.getObj().refundServices.put(ID,Account.user);
+		System.out.println("Your request is pending... ");
 	}
 	
 //	Discount[] showDiscounts(){}

@@ -19,7 +19,7 @@ public class SavedData {
 	public Map<Integer,Service> getUsersCompleteService() {
 		return usersCompleteService.get(Account.user.email);
 	}
-	void setUsersCompleteService(Map<Integer,Service> userCompliete) {
+	public void setUsersCompleteService(Map<Integer,Service> userCompliete) {
 		usersCompleteService.put(Account.user.email,userCompliete);
 	}
 	public Map<String, User> userData = new HashMap<String, User>();

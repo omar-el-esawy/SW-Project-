@@ -3,6 +3,7 @@ package service;
 import java.util.Scanner;
 
 import payment.*;
+import user.Account;
 
 public abstract class Service {
 	static int idGenrator = 1;
@@ -48,6 +49,7 @@ public abstract class Service {
         setProvider();
         discount=getDiscounts();
         payment.pay(discount);
+        Account.user.addCompeleteServices(this);
 
     }
 

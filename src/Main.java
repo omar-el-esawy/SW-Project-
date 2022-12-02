@@ -5,8 +5,10 @@ import Screen.Invoker;
 import Screen.Login;
 import Screen.Register;
 import Screen.UI;
+import admin.Admin;
 import service.*;
 import user.Account;
+import user.User;
 
 
 public class Main {
@@ -39,15 +41,21 @@ public class Main {
 					if(!success)System.out.println(" eamil or password not correct!, please try again");
 				}
 				while(true) {
+					System.out.println(Account.user.getMyWallet().getBalance()); 
 					UI.userOptions();
 					int userChoice=cin.nextInt();
 					if(userChoice==1) {
-						//ServiceFactory serviceFactory =new ServiceFactory();
-						//System.out.println(Account.user.getMyWallet().getBalance());
-						//Account.user.getMyWallet().add(20);
-						//System.out.println(Account.user.getMyWallet().getBalance());
-						//SavedData.getObj().services.get("Mobile Recharge").serve();
+						ServiceFactory serviceFactory =new ServiceFactory();
+						System.out.println(Account.user.getMyWallet().getBalance());
+						Account.user.getMyWallet().add(20);
+						System.out.println(Account.user.getMyWallet().getBalance());
+						SavedData.getObj().services.get("Mobile Recharge").serve();
 						//Search.showSearchResult("Mobile");
+					}
+					if(userChoice ==2) {
+						Account.user.showRefunds();
+						int id = cin.nextInt();
+						Account.user.refund(id);
 					}
 					if(userChoice==5)appSteps();
 				}
@@ -70,13 +78,18 @@ public class Main {
 				UI.adminOptions();
 				int adminChoice=cin.nextInt();
 				if(adminChoice==5)appSteps();
+				else if(adminChoice ==3 ) {
+					Admin admin = new Admin();
+					admin.showRefund();
+				}
 			}
 			
 		}
 	}
 	
 	public static void main(String[] args) {
-
+		User user = new User("d","doha","123");
+		SavedData.getObj().userData.put("d",user);
 		appSteps();
 		
 		
