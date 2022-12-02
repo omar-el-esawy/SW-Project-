@@ -5,9 +5,9 @@ import Screen.Invoker;
 import Screen.Login;
 import Screen.Register;
 import Screen.UI;
-import service.Service;
-import service.ServiceFactory;
+import service.*;
 import user.Account;
+
 
 public class Main {
 	static Scanner cin = new Scanner(System.in);
@@ -46,7 +46,8 @@ public class Main {
 						//System.out.println(Account.user.getMyWallet().getBalance());
 						//Account.user.getMyWallet().add(20);
 						//System.out.println(Account.user.getMyWallet().getBalance());
-						SavedData.getObj().services.get("Mobile Recharge").serve();;
+//						SavedData.getObj().services.get("Mobile Recharge").serve();
+						Search.showSearchResult("Mobile");
 					}
 					if(userChoice==5)appSteps();
 				}

@@ -7,3 +7,5 @@
 /Service.class
 /ServiceFactory.class
 /ServiceDecorator.class
+/Search.class
+/Search$Pair.class
