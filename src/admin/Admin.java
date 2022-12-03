@@ -7,7 +7,6 @@ import Data.SavedData;
 import Screen.UI;
 import service.*;
 import user.User;
-
 public class Admin {
 	
 	public void addDiscount()
@@ -17,6 +16,7 @@ public class Admin {
 		String serviceName= new Scanner(System.in).next();
 		System.out.println("Enter Discount Percentage");
 		int discount= new Scanner(System.in).nextInt();
+		System.out.println(serviceName);
 		if(serviceName=="All") {
 			
 			for(Map.Entry<String,Service> service :SavedData.getObj().services.entrySet()) {
@@ -30,11 +30,15 @@ public class Admin {
 			
 		}else {
 			//Service oldService =  SavedData.getObj().services.get(serviceName);
-			 Service discountService = new DiscountDecorator(SavedData.getObj().services.get(serviceName));
-			 discountService.setDiscount(discount);
-		     System.out.println(discountService.getDiscounts()+"kkkkkkkkk");
-		     SavedData.getObj().services.put(serviceName,discountService);
-		     System.out.println( SavedData.getObj().services.get(serviceName).getDiscounts()+"kkkkkkkkk");
+//			 System.out.println(SavedData.getObj().services.get(serviceName).name);
+//			 Service discountService = new DiscountDecorator(SavedData.getObj().services.get(serviceName));
+			
+			 System.out.println(Search.search(serviceName).get(0).service.name);
+//			 System.out.println(discountService.name);
+//			 discountService.setDiscount(discount);
+//		     System.out.println(discountService.getDiscounts()+"kkkkkkkkk");
+//		     SavedData.getObj().services.put(serviceName,discountService);
+//		     System.out.println( SavedData.getObj().services.get(serviceName).getDiscounts()+"kkkkkkkkk");
 
 		}
 			

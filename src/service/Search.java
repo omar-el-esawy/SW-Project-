@@ -9,7 +9,7 @@ import Screen.Pair;
 public class Search {
 
 	
-	static ArrayList<Pair> search(String id) {
+	static public ArrayList<Pair> search(String id) {
 		ArrayList<Pair> searchResult = new ArrayList<Pair>();
 		
 		for(Map.Entry<String, Service> service : SavedData.getObj().services.entrySet()) {

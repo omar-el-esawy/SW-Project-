@@ -51,8 +51,9 @@ public abstract class Service {
     
     public void setProvider() {
     	FactoryOfServiceProviderFactory factoryOfServiceProviderFactory =new FactoryOfServiceProviderFactory();
+    	System.out.println(getName());
     	ServiceProviderFactory serviceProviderFactory=factoryOfServiceProviderFactory.create(getName());
-    	ServiceProvider serviceProvider = serviceProviderFactory.create();
+    	provider = serviceProviderFactory.create();
     }
     
     public ServiceProvider getProvider() {
