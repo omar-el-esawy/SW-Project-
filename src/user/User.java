@@ -62,7 +62,6 @@ public class User {
 			
 	}
 	
-//	Discount[] showDiscounts(){}
 	
 	void addFundsToWallet(double amount) {}
 }

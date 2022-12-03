@@ -10,6 +10,11 @@ import service.Service;
 
 public class SavedData {
 	
+	public static SavedData getObj(){
+		if(savedData==null)savedData = new SavedData();
+		
+		return savedData;
+	}
 	private SavedData() {
 		services.put("MobileRecharge", new MobileRechargeService());
 		services.put("InternetPayment", new InternetPaymentService());
@@ -35,11 +40,6 @@ public class SavedData {
 
 	private static SavedData savedData = null;
 	
-	public static SavedData getObj(){
-		if(savedData==null)savedData = new SavedData();
-		
-		return savedData;
-	}
 	
 	
 }
