@@ -20,7 +20,7 @@ public abstract class ServiceDecorator extends Service{
     }
     @Override
     public void setId(int id) {
-		this.service.getId();
+		this.service.setId(id);
 	}
     
    
@@ -52,7 +52,11 @@ public abstract class ServiceDecorator extends Service{
 		return this.service.getProvider();
 	}
     
-    
+    @Override
+    public String getName() {
+    	
+    	return this.service.getName();
+    }
     
     @Override
     public void setDiscount(int discount){

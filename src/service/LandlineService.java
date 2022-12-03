@@ -9,17 +9,12 @@ import provider.ServiceProvider;
 import provider.ServiceProviderFactory;
 
 public class LandlineService extends Service {
-	public LandlineService()
-	{
-		name="LandlineService";
-		
-	}
 	
   @Override
-  public void setProvider() {
-	  ServiceProviderFactory serviceProviderFactory =new LandlineProviderFactory();
-		provider= serviceProviderFactory.create();
-		
-		
-	}
+  public String getName() {
+  	
+  	return "LandlineService";
+  }
+  
 }
+

@@ -3,7 +3,9 @@ package service;
 import java.util.Scanner;
 
 import payment.*;
+import provider.FactoryOfServiceProviderFactory;
 import provider.ServiceProvider;
+import provider.ServiceProviderFactory;
 import user.Account;
 
 public abstract class Service {
@@ -43,15 +45,20 @@ public abstract class Service {
     				
     }
 
-    public abstract void setProvider();
+    public Payment getPayment() {
+		return payment;
+	}
+    
+    public void setProvider() {
+    	FactoryOfServiceProviderFactory factoryOfServiceProviderFactory =new FactoryOfServiceProviderFactory();
+    	ServiceProviderFactory serviceProviderFactory=factoryOfServiceProviderFactory.create(getName());
+    	ServiceProvider serviceProvider = serviceProviderFactory.create();
+    }
     
     public ServiceProvider getProvider() {
 		return provider;
 	}
-    
-    public Payment getPayment() {
-		return payment;
-	}
+   
     
     public void setDiscount(int discount){
         this.discount=discount/100.0;
@@ -81,6 +88,7 @@ public abstract class Service {
         getInfo();
 
     }
+    abstract public String getName();
     
     public void getInfo() {
     	System.out.println("Id: "+id);
@@ -88,6 +96,10 @@ public abstract class Service {
     	System.out.println("Provider: "+provider.getName());
     	System.out.println("Discounts: "+getDiscounts());
     	System.out.println("Cost: "+cost);
+    	System.out.println("Cash: "+this.getCash());
+    	System.out.println("Name: "+this.getName());
+
+
 
     }
 

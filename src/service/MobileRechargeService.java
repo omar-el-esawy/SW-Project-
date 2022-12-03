@@ -8,21 +8,14 @@ import provider.ServiceProvider;
 import provider.ServiceProviderFactory;
 
 public class MobileRechargeService extends Service {	
-	public MobileRechargeService()
-	{
-		name="MobileRechargeService";
-		
-	}
-	@Override
-	
-	public void setProvider() {
-		   
-		ServiceProviderFactory serviceProviderFactory =new MobileProviderFactory();
-		provider= serviceProviderFactory.create();
 	
 
+	@Override
+	public String getName() {
 		
+		return "MobileRechargeService";
 	}
+	
     
    
 }
