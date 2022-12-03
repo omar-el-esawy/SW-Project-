@@ -33,7 +33,7 @@ public class User {
 //	searchService(){}
 	public void showRefunds() {
 		for(Map.Entry<Integer,Service> current :completeServices.entrySet()) {
-			 System.out.println(current.getKey()+ " "  + current.getValue().name );
+			 System.out.println(current.getKey()+ " "  + current.getValue().getName() );
 		}
 	}
 	public void refund(Integer ID) {

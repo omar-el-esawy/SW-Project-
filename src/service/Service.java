@@ -10,7 +10,6 @@ import user.Account;
 
 public abstract class Service {
 	public int id;
-	public String name;
 	public double cost;
 	Payment payment=new CreditPayment();
     Double discount=0.0;

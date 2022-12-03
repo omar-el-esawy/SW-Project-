@@ -31,14 +31,13 @@ public class Admin {
 		}else {
 			//Service oldService =  SavedData.getObj().services.get(serviceName);
 //			 System.out.println(SavedData.getObj().services.get(serviceName).name);
-//			 Service discountService = new DiscountDecorator(SavedData.getObj().services.get(serviceName));
-			
-			 System.out.println(Search.search(serviceName).get(0).service.name);
+			 Service discountService = new DiscountDecorator(SavedData.getObj().services.get(serviceName));
+			 System.out.println(Search.search(serviceName).get(0).service.getName());
 //			 System.out.println(discountService.name);
-//			 discountService.setDiscount(discount);
-//		     System.out.println(discountService.getDiscounts()+"kkkkkkkkk");
-//		     SavedData.getObj().services.put(serviceName,discountService);
-//		     System.out.println( SavedData.getObj().services.get(serviceName).getDiscounts()+"kkkkkkkkk");
+			 discountService.setDiscount(discount);
+		     System.out.println(discountService.getDiscounts()+"kkkkkkkkk");
+		     SavedData.getObj().services.put(serviceName,discountService);
+		     System.out.println( SavedData.getObj().services.get(serviceName).getDiscounts()+"kkkkkkkkk");
 
 		}
 			
@@ -58,7 +57,7 @@ public class Admin {
 			int Id=currentRefund.getKey();
 			User user=currentRefund.getValue();
 			Map<Integer,Service> current=obj.usersCompleteService.get(user.email);
-			System.out.println(current.get(Id).name);
+			System.out.println(current.get(Id).getName());
 			
 		}
 		System.out.println("Choose service ");

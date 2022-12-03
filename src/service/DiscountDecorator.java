@@ -21,7 +21,7 @@ public class DiscountDecorator extends ServiceDecorator{
     
 	@Override
 	public String getName() {
-		return service.name;
+		return service.getName();
 	}
 
     
