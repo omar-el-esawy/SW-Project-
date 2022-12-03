@@ -86,7 +86,7 @@ public class Main {
 			else 
 				System.out.println("Invalid input, You should choose from admin options! ");
 			}
-		}
+		
 	}
 	static void appSteps() {
 		while(true) {
