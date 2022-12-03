@@ -21,13 +21,14 @@ public class Search {
 		return searchResult;
 	}
 	
-	static public void showSearchResult(String id) {
+	static public ArrayList<Pair> showSearchResult(String id) {
 		ArrayList<Pair> searchResult = new ArrayList<Pair>();
 		searchResult = search(id);
 		
 		for(int i =0 ;i<searchResult.size();i++) {
 			System.out.println(searchResult.get(i).name);
 		}
+		return searchResult;
 		
 	}
 	 

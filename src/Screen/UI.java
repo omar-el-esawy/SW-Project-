@@ -22,11 +22,17 @@ public class UI {
 		System.out.println("press 5. To exit");
 	}
 	public static void adminOptions() {
-		System.out.println("Press 1. addService");
-		System.out.println("Press 2. addDiscount");
-		System.out.println("Press 3. showRefund");
-		System.out.println("Press 4. avaliablityCash");
-		System.out.println("press 5. To exit");
+		System.out.println("Press 1. addDiscount");
+		System.out.println("Press 2. showRefund");
+		System.out.println("Press 3. avaliablityCash");
+		System.out.println("press 4. To exit");
+	}
+	public static void servicesOptions() {
+		System.out.println("MobileRecharge");
+		System.out.println("InternetPayment");
+		System.out.println("Landline");
+		System.out.println("Donation");
+		System.out.println("All");
 	}
 	
 	

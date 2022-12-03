@@ -11,7 +11,7 @@ public class WalletPayment implements Payment{
 		System.out.println("Enter The Amount: ");
 		double  amount= new Scanner(System.in).nextDouble();
 		double amountAfterDiscounts = (1-discount)*amount;
-
+		System.out.println("Discounttttttttt  "+discount);
 		if(Account.user.getMyWallet().getBalance()>=amountAfterDiscounts+1) {
 			
 			System.out.println("You Will pay "+amountAfterDiscounts +" and 1LE Wallet Taxes" );

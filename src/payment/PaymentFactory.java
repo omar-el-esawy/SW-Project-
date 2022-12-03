@@ -10,13 +10,15 @@ public class PaymentFactory {
 		System.out.println("Press 1. Credit Card");
 		System.out.println("Press 2. Wallet");
 		if(cach)
-			System.out.println("Press 3. Cach");		
+			System.out.println("Press 3. Cash");		
 		String paymentType= new Scanner(System.in).next();
 		
 		if(paymentType.equals("1")) 
 			return new CreditPayment();
-		else if(paymentType.equals("2")) 
-			return new WalletPayment();
+		else if(paymentType.equals("2")) {
+			System.out.println("ahhhhhhhhhhhh");
+				return new WalletPayment();
+		}
 		else if(paymentType.equals("3")) 
 			return new CashPaymnet();
 		 

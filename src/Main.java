@@ -48,7 +48,7 @@ public class Main {
 						System.out.println(Account.user.getMyWallet().getBalance());
 						Account.user.getMyWallet().add(20);
 						System.out.println(Account.user.getMyWallet().getBalance());
-						SavedData.getObj().services.get("Mobile Recharge").serve();
+						SavedData.getObj().services.get("MobileRecharge").serve();
 						//Search.showSearchResult("Mobile");
 					}
 					if(userChoice ==2) {
@@ -76,10 +76,17 @@ public class Main {
 			while(true) {
 				UI.adminOptions();
 				int adminChoice=cin.nextInt();
-				if(adminChoice==5)appSteps();
-				else if(adminChoice ==3 ) {
+				if(adminChoice==4)appSteps();
+				else if(adminChoice ==2 ) {
 					Admin admin = new Admin();
 					admin.showRefund();
+				}else if(adminChoice==1) {
+					Admin admin = new Admin();
+					admin.addDiscount();
+				}
+				else if(adminChoice==3) {
+					Admin admin = new Admin();
+					admin.avaliablityCash();
 				}
 			}
 			

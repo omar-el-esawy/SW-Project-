@@ -11,8 +11,8 @@ import service.Service;
 public class SavedData {
 	
 	private SavedData() {
-		services.put("Mobile Recharge", new MobileRechargeService());
-		services.put("Internet Payment", new InternetPaymentService());
+		services.put("MobileRecharge", new MobileRechargeService());
+		services.put("InternetPayment", new InternetPaymentService());
 		services.put("Landline", new LandlineService());
 		services.put("Donation", new DonationService());
 	}

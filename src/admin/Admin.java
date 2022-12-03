@@ -4,19 +4,42 @@ import java.util.Map;
 import java.util.Scanner;
 
 import Data.SavedData;
+import Screen.UI;
 import service.*;
 import user.User;
 
 public class Admin {
 	
+	public void addDiscount()
+	{
+		System.out.println("Enter Service Name to Add Discount to it: ");
+		UI.servicesOptions();
+		String serviceName= new Scanner(System.in).next();
+		System.out.println("Enter Discount Percentage");
+		int discount= new Scanner(System.in).nextInt();
+		if(serviceName=="All") {
+			
+			for(Map.Entry<String,Service> service :SavedData.getObj().services.entrySet()) {
+				 Service discountService = new DiscountDecorator(SavedData.getObj().services.get(service.getKey()));
+			     discountService.setDiscount(discount);
+			     System.out.println(discountService.getDiscounts()+"kkkkkkkkk");
+			     SavedData.getObj().services.put(service.getKey(),discountService);
+			     System.out.println(SavedData.getObj().services.get(service.getKey()).getDiscounts()+"kkkkkkkkk");
+
+			}
+			
+		}else {
+			//Service oldService =  SavedData.getObj().services.get(serviceName);
+			 Service discountService = new DiscountDecorator(SavedData.getObj().services.get(serviceName));
+			 discountService.setDiscount(discount);
+		     System.out.println(discountService.getDiscounts()+"kkkkkkkkk");
+		     SavedData.getObj().services.put(serviceName,discountService);
+		     System.out.println( SavedData.getObj().services.get(serviceName).getDiscounts()+"kkkkkkkkk");
+
+		}
+			
+       
 	
-	void addService()
-	{
-		
-	}
-	void addDiscount()
-	{
-		
 	}
 	
 	public void showRefund()
@@ -49,9 +72,24 @@ public class Admin {
 	
 	
 	
-	void avaliablityCash(Service s)
+	 public void avaliablityCash()
 	{
-		
+		System.out.println("Enter Service Name to set Cash avaliablity: ");
+		UI.servicesOptions();
+		String serviceName= new Scanner(System.in).next();
+		System.out.println("Enter true or false");
+		boolean visible= new Scanner(System.in).nextBoolean();
+		if(serviceName=="All") {
+			
+			for(Map.Entry<String,Service> service :SavedData.getObj().services.entrySet()) {
+				
+				 service.getValue().setCash(visible);
+			}
+			
+		}else {
+			SavedData.getObj().services.get(serviceName).setCash(visible);
+		}
 	}
+		
 
 }

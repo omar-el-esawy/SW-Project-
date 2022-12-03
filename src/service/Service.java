@@ -40,7 +40,7 @@ public abstract class Service {
     abstract void setProvider();
 
     public void setDiscount(int discount){
-        this.discount+=discount/100.0;
+        this.discount=discount/100.0;
     }
     public Double getDiscounts(){
         return discount;
@@ -50,6 +50,7 @@ public abstract class Service {
         setPayment();
         setProvider();
         discount=getDiscounts();
+        System.out.println(discount);
         cost = payment.pay(discount);
         
         if(cost!=-1) {
