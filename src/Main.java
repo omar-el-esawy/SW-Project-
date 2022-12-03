@@ -61,35 +61,45 @@ public class Main {
 				
 
 			}
+			else 
+				System.out.println("Invalid input, You should choose from user options! ");
+			
 		}	
 	}
+	
+	static void adminSteps() {
+		while(true) {
+			UI.adminOptions();
+			int adminChoice=cin.nextInt();
+			if(adminChoice==4)appSteps();
+			else if(adminChoice ==2 ) {
+				Admin admin = new Admin();
+				admin.showRefund();
+			}else if(adminChoice==1) {
+				Admin admin = new Admin();
+				admin.addDiscount();
+			}
+			else if(adminChoice==3) {
+				Admin admin = new Admin();
+				admin.avaliablityCash();
+			}
+			else 
+				System.out.println("Invalid input, You should choose from admin options! ");
+			}
+		
+	}
 	static void appSteps() {
+		while(true) {
+			
 		UI.home();
 		int userOrAdmin=cin.nextInt();
 		
 		if(userOrAdmin==1)
-		{
 			userSteps();
-		}
-		else
-		{
-			while(true) {
-				UI.adminOptions();
-				int adminChoice=cin.nextInt();
-				if(adminChoice==4)appSteps();
-				else if(adminChoice ==2 ) {
-					Admin admin = new Admin();
-					admin.showRefund();
-				}else if(adminChoice==1) {
-					Admin admin = new Admin();
-					admin.addDiscount();
-				}
-				else if(adminChoice==3) {
-					Admin admin = new Admin();
-					admin.avaliablityCash();
-				}
-			}
-			
+		else if(userOrAdmin==2)
+			adminSteps();	
+		else 
+			System.out.println("Invalid input, You should choose from user or admin! ");
 		}
 	}
 	
