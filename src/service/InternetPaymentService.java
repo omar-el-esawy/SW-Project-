@@ -14,9 +14,9 @@ public class InternetPaymentService extends Service {
 		
 	}
    @Override
-	void setProvider() {
+	public void setProvider() {
 	   ServiceProviderFactory serviceProviderFactory =new InternetProviderFactory();
-		ServiceProvider serviceProvider= serviceProviderFactory.create();
+		provider= serviceProviderFactory.create();
 	}
    
 }

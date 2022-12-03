@@ -15,9 +15,9 @@ public class DonationService extends Service {
 	}
 
 @Override
-	void setProvider() {
+	public void setProvider() {
 		ServiceProviderFactory serviceProviderFactory =new DonationProviderFactory();
-		ServiceProvider serviceProvider= serviceProviderFactory.create();
+		 provider= serviceProviderFactory.create();
 	}
    
 }

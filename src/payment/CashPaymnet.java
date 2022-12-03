@@ -12,5 +12,11 @@ public class CashPaymnet implements Payment{
 		System.out.println("You Will pay "+amountAfterDiscounts);
 		return amountAfterDiscounts;
 	}
+	
+	@Override
+	public String getName() {
+		return "CashPayment";
+		
+	}
 
 }

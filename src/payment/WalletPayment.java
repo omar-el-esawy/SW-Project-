@@ -25,4 +25,9 @@ public class WalletPayment implements Payment{
 		}
 	}
 
+	@Override
+	public String getName() {
+		return "WalletPayment";
+		
+	}
 }

@@ -1,53 +1,94 @@
 package service;
 
+import payment.Payment;
 import payment.PaymentFactory;
+import provider.ServiceProvider;
 import user.Account;
 
 public abstract class ServiceDecorator extends Service{
     Service service;
     double newDiscount=0.0;
+    
     ServiceDecorator(Service service){
         this.service= service;
-    }
-    @Override
-    public Double getDiscounts() {
-    	return service.getDiscounts();
+        
     }
     
     @Override
     public int getId() {
-		return service.getId();		
+		return this.service.getId();		
     }
+    @Override
+    public void setId(int id) {
+		this.service.getId();
+	}
     
+   
     @Override
     public void setCash(boolean cash) {
-		service.setCash(cash);
+		this.service.setCash(cash);
 	}
     
     @Override
     public boolean getCash() {
-			return service.getCash();
+			return this.service.getCash();
 	}
     
     @Override
     void setPayment() {
-		service.setPayment();		
+		this.service.setPayment();		
     }
     
     @Override
-     void setProvider() {
-    	 service.setProvider();
-     }
-    public void serve() {
-		service.serve();
+    public Payment getPayment() {
+		return this.service.getPayment();
 	}
-   
+    
+    @Override
+     public void setProvider() {
+    	 this.service.setProvider();
+     }
+    public ServiceProvider getProvider() {
+		return this.service.getProvider();
+	}
+    
+    
     
     @Override
     public void setDiscount(int discount){
-    	//service.setDiscount(discount);
-    	newDiscount=discount/100.0;
+    	this.service.setDiscount(discount);
     }
+    
+    @Override
+    public Double getDiscounts() {
+    	return this.service.getDiscounts();
+    }
+    
+    @Override
+    public void serve() {
+		this.service.serve();
+	}
+    
+    @Override
+    public void getInfo() {
+    	this.service.getInfo();
+
+    }
+    
+    @Override
+    public void setCost(double cost) {
+    	this.service.setCost(cost);;
+	}
+    
+    @Override
+    public double getCost() {
+		return this.service.getCost();
+	}
+    
+    
+   
+   
+    
 
 
 

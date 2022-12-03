@@ -15,10 +15,10 @@ public class MobileRechargeService extends Service {
 	}
 	@Override
 	
-	void setProvider() {
+	public void setProvider() {
 		   
 		ServiceProviderFactory serviceProviderFactory =new MobileProviderFactory();
-		ServiceProvider serviceProvider= serviceProviderFactory.create();
+		provider= serviceProviderFactory.create();
 	
 
 		

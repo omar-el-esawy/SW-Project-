@@ -26,4 +26,10 @@ public class CreditPayment implements Payment {
 		
 	}
 
+	@Override
+	public String getName() {
+		return "CreditCardPayment";
+		
+	}
+
 }

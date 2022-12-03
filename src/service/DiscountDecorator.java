@@ -9,9 +9,16 @@ public class DiscountDecorator extends ServiceDecorator{
     
 
     public Double getDiscounts() {
-        return newDiscount+service.getDiscounts();
+    	
+        return this.discount;
     }
-
+    
+    public void setDiscount(int discount) {
+    	newDiscount =discount/100.0;
+    	this.discount=newDiscount+super.getDiscounts();
+    }
+   
+    
 
 
 }

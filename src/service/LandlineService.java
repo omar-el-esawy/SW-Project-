@@ -16,9 +16,9 @@ public class LandlineService extends Service {
 	}
 	
   @Override
-	void setProvider() {
+  public void setProvider() {
 	  ServiceProviderFactory serviceProviderFactory =new LandlineProviderFactory();
-		ServiceProvider serviceProvider= serviceProviderFactory.create();
+		provider= serviceProviderFactory.create();
 		
 		
 	}
