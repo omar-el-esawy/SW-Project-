@@ -22,37 +22,23 @@ public class Admin {
 			for(Map.Entry<String,Service> service :SavedData.getObj().services.entrySet()) {
 				 Service discountService = new DiscountDecorator(SavedData.getObj().services.get(service.getKey()));
 			     discountService.setDiscount(discount);
-			     System.out.println(discountService.getDiscounts()+"kkkkkkkkk");
 			     SavedData.getObj().services.put(service.getKey(),discountService);
-			     System.out.println(SavedData.getObj().services.get(service.getKey()).getDiscounts()+"kkkkkkkkk");
-
 			}
-			
-		}else {
-			//Service oldService =  SavedData.getObj().services.get(serviceName);
-//			 System.out.println(SavedData.getObj().services.get(serviceName).name);
+		}
+		else 
+		{
 			 Service discountService = new DiscountDecorator(SavedData.getObj().services.get(serviceName));
 			 System.out.println(Search.search(serviceName).get(0).service.getName());
-//			 System.out.println(discountService.name);
 			 discountService.setDiscount(discount);
-		     System.out.println(discountService.getDiscounts()+"kkkkkkkkk");
 		     SavedData.getObj().services.put(serviceName,discountService);
-		     System.out.println( SavedData.getObj().services.get(serviceName).getDiscounts()+"kkkkkkkkk");
-
 		}
-			
-       
-	
 	}
-	
 	public void showRefund()
 	{
 		Scanner cin = new Scanner(System.in);
-		//Map<Integer,User> refundServices
 		SavedData obj=SavedData.getObj();
 		for(Map.Entry<Integer,User> currentRefund:SavedData.getObj().refundServices.entrySet())
 		{
-			// id, user
 			System.out.print(currentRefund.getKey()+" ");
 			int Id=currentRefund.getKey();
 			User user=currentRefund.getValue();
@@ -64,6 +50,12 @@ public class Admin {
 		int id = cin.nextInt();
 		System.out.println("1. Accept  or 2. reject ");
 		int op = cin.nextInt();
+		while(op!=1&&op!=2)
+		{
+			System.out.println("1. Accept  or 2. reject ");
+			op = cin.nextInt();
+			
+		}
 		if(op==1) {
 			User user= obj.refundServices.get(id);
 			Map<Integer,Service> current=obj.usersCompleteService.get(user.email);
@@ -73,9 +65,7 @@ public class Admin {
 		obj.refundServices.remove(id);
 	}
 	
-	
-	
-	 public void avaliablityCash()
+	public void avaliablityCash()
 	{
 		System.out.println("Enter Service Name to set Cash avaliablity: ");
 		UI.servicesOptions();
@@ -83,16 +73,14 @@ public class Admin {
 		System.out.println("Enter true or false");
 		boolean visible= new Scanner(System.in).nextBoolean();
 		if(serviceName=="All") {
-			
 			for(Map.Entry<String,Service> service :SavedData.getObj().services.entrySet()) {
-				
-				 service.getValue().setCash(visible);
-			}
-			
-		}else {
+					 service.getValue().setCash(visible);
+			}	
+		}
+		
+		else
+		{
 			SavedData.getObj().services.get(serviceName).setCash(visible);
 		}
-	}
-		
-
+	}	
 }
