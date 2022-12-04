@@ -6,6 +6,7 @@ import java.util.Map.Entry;
 import java.util.Scanner;
 
 import Data.SavedData;
+import Data.ServiceStatePair;
 import Screen.UI;
 import discount.Discount;
 import discount.DiscountFactory;
@@ -29,8 +30,8 @@ public class Admin {
 			System.out.print(currentRefund.getKey()+" ");
 			int Id=currentRefund.getKey();
 			User user=currentRefund.getValue();
-			Map<Integer,Service> current=obj.usersCompleteService.get(user.email);
-			System.out.println(current.get(Id).getName());
+			Map<Integer,ServiceStatePair> current=obj.usersCompleteService.get(user.email);
+			System.out.println(current.get(Id).service.getName());
 			
 		}
 		System.out.println("Choose service ");
@@ -43,11 +44,15 @@ public class Admin {
 			op = cin.nextInt();
 			
 		}
+		User user= obj.refundServices.get(id);
 		if(op==1) {
-			User user= obj.refundServices.get(id);
-			Map<Integer,Service> current=obj.usersCompleteService.get(user.email);
-			user.getMyWallet().add(current.get(id).cost);
-			obj.usersCompleteService.get(user.email).remove(id);
+			Map<Integer,ServiceStatePair> current=obj.usersCompleteService.get(user.email);
+			user.getMyWallet().add(current.get(id).service.cost);
+			obj.usersCompleteService.get(user.email).get(id).state=1;
+		}else {
+			
+			obj.usersCompleteService.get(user.email).get(id).state=-1;
+
 		}
 		obj.refundServices.remove(id);
 	}

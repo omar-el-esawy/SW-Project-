@@ -2,6 +2,7 @@ package user;
 import java.util.*;
 
 import Data.SavedData;
+import Data.ServiceStatePair;
 import service.*;
 public class User {
 	public String email; 
@@ -9,7 +10,7 @@ public class User {
 	String passwrod;
 	CreditCard myCrditCard;
 	Wallet myWallet;
-	Map<Integer,Service> completeServices;
+	Map<Integer,ServiceStatePair> completeServices;
 
 	public User(String email,String userName,String password) {
 		this.email = email;
@@ -18,7 +19,7 @@ public class User {
 		myWallet = new Wallet();
 		myCrditCard = new CreditCard();
 		myCrditCard.add(1000);
-		completeServices = new HashMap<Integer,Service>();
+		completeServices = new HashMap<Integer,ServiceStatePair>();
 	}
 
 	public Wallet getMyWallet() {
@@ -28,14 +29,74 @@ public class User {
 		return myCrditCard;
 	}	
 	public void addCompeleteServices(Service service) {
-		completeServices.put(service.id, service);
+		ServiceStatePair serviceStatePair=new ServiceStatePair(0, service);
+		completeServices.put(service.id, serviceStatePair);
 		SavedData.getObj().setUsersCompleteService(completeServices);
 	}
 	public void showRefunds() {
-		for(Map.Entry<Integer,Service> current :completeServices.entrySet()) {
-			 System.out.println("ID:"+current.getKey()+ "\t Service Name: "  + current.getValue().getName() );
+		System.out.println("Press 1. Show Complete Services");
+		System.out.println("Press 2. Show Pending Services");
+		System.out.println("Press 3. Show Accepted Services");
+		System.out.println("Press 4. Show Rejected Services");
+		int option=new Scanner(System.in).nextInt();
+		int empty=0;
+		if(option==1) {
+			for(Map.Entry<Integer,ServiceStatePair> current :completeServices.entrySet()) {
+				if(current.getValue().state==0)
+				{
+					 System.out.println("ID:"+current.getKey()+ "\t Service Name: "  + current.getValue().service.getName() );
+					 empty++;
+				}			
+				
+			}
+			if(empty!=0) {
+
+				
+				while(true)
+				{
+					System.out.println("Enter service's ID : ");
+					int id = new Scanner(System.in).nextInt();
+					boolean success1 = Account.user.refund(id);
+					completeServices.get(id).state=2;
+					if(success1)
+						break;
+				}
+			}else {
+				System.out.println("Empty..");
+			}
+			
+		}else if(option==2) {
+			for(Map.Entry<Integer,ServiceStatePair> current :completeServices.entrySet()) {
+				if(current.getValue().state==2) {
+					 System.out.println("ID:"+current.getKey()+ "\t Service Name: "  + current.getValue().service.getName() );
+					 empty++;
+				}
+			}
+			if(empty==0)
+				System.out.println("Empty..");
+
+				
+		}else if(option==3) {
+			for(Map.Entry<Integer,ServiceStatePair> current :completeServices.entrySet()) {
+				if(current.getValue().state==1) {
+					 System.out.println("ID:"+current.getKey()+ "\t Service Name: "  + current.getValue().service.getName() );
+					 empty++;
+				}
+			}
+			if(empty==0)
+				System.out.println("Empty..");
+			
+		}else if(option==4) {
+			for(Map.Entry<Integer,ServiceStatePair> current :completeServices.entrySet()) {
+				if(current.getValue().state==-1) {
+					 System.out.println("ID:"+current.getKey()+ "\t Service Name: "  + current.getValue().service.getName() );
+					 empty++;
+				}
+			}
+			if(empty==0)
+				System.out.println("Empty..");
 		}
-		System.out.println("Enter service's ID : ");
+	
 	}
 	public boolean refund(Integer ID) {	
 		if(!completeServices.containsKey(ID)) {
@@ -46,7 +107,9 @@ public class User {
 		System.out.println("Your request is pending... ");
 		return true;
 	}
-	public void addMoneyToWallet(double amount) {
+	public void addMoneyToWallet() {
+		System.out.println("Enter the amount you want to add: ");
+		int amount = new Scanner(System.in).nextInt();
 		if(myCrditCard.balance>=amount) {
 			myCrditCard.balance-=amount;
 			myWallet.balance+=amount;

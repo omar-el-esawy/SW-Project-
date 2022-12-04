@@ -25,16 +25,16 @@ public class SavedData {
 		services.put("Donation", new DonationService());
 	}
 	
-	public Map<Integer,Service> getUsersCompleteService() {
+	public Map<Integer,ServiceStatePair> getUsersCompleteService() {
 		return usersCompleteService.get(Account.user.email);
 	}
 	
-	public void setUsersCompleteService(Map<Integer,Service> userCompliete) {
+	public void setUsersCompleteService(Map<Integer,ServiceStatePair> userCompliete) {
 		usersCompleteService.put(Account.user.email,userCompliete);
 	}
 	public Map<String, User> userData = new HashMap<String, User>();
 
-	public  Map<String, Map<Integer,Service>> usersCompleteService = new HashMap<String,Map<Integer,Service>>(); 
+	public  Map<String, Map<Integer,ServiceStatePair>> usersCompleteService = new HashMap<String,Map<Integer,ServiceStatePair>>(); 
 
 	public Map<String, Service> services = new HashMap<String, Service>();
 	

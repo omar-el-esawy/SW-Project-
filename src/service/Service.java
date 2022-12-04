@@ -90,6 +90,7 @@ public abstract class Service {
     abstract public String getName();
     
     public void getInfo() {
+		System.out.println("----------------------------------------------------------");
     	System.out.println("Service Name: "+this.getName());
     	System.out.println("Service Id: "+id);
     	System.out.println("Payment Way: "+payment.getName());
@@ -97,6 +98,8 @@ public abstract class Service {
     	System.out.println("Discounts: "+getDiscounts()*100+"%");
     	System.out.println("Payment Taxes: "+payment.getTaxes()+"LE");
     	System.out.println("Service Total Cost: "+cost+"LE");
+		System.out.println("----------------------------------------------------------");
+
     }
 
 
