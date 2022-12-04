@@ -41,28 +41,29 @@ public class Main {
 					if(!success)System.out.println(" eamil or password not correct!, please try again");
 				}
 				while(true) {
-					System.out.println(Account.user.getMyWallet().getBalance()); 
+					System.out.println("Name: " + Account.user.userName + "\t\t balance: "+Account.user.getMyWallet().getBalance()); 
 					UI.userOptions();
 					int userChoice=cin.nextInt();
 					if(userChoice==1) {
-						System.out.println(Account.user.getMyWallet().getBalance());
 						Account.user.getMyWallet().add(20);
-						System.out.println(Account.user.getMyWallet().getBalance());
 						SavedData.getObj().services.get("MobileRecharge").serve();
 						//Search.showSearchResult("Mobile");
 					}
-					if(userChoice ==2) {
+					else if(userChoice ==2) {
 						Account.user.showRefunds();
 						int id = cin.nextInt();
 						Account.user.refund(id);
 					}
-					if(userChoice==5)appSteps();
+					else if(userChoice==5)appSteps();
+					else 
+						System.out.println("Invalid input, You should choose from user's options!");
+					
 				}
 				
 
 			}
 			else 
-				System.out.println("Invalid input, You should choose from user options! ");
+				System.out.println("Invalid input, You should choose from user's options! ");
 			
 		}	
 	}
@@ -84,7 +85,7 @@ public class Main {
 				admin.avaliablityCash();
 			}
 			else 
-				System.out.println("Invalid input, You should choose from admin options! ");
+				System.out.println("Invalid input, You should choose from admin's options! ");
 			}
 		
 	}
