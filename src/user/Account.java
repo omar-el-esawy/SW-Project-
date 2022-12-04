@@ -17,9 +17,9 @@ public class Account {
 	public boolean login(String email,String password)
 	{
 		
-		if(saveData.userData.containsKey(email))
+		if(saveData.getUserData().containsKey(email))
 		{
-			user = saveData.userData.get(email) ;
+			user = saveData.getUserData().get(email) ;
 			if(user.passwrod.equals(password))
 				return true;
 			else 

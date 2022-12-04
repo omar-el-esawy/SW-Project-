@@ -121,7 +121,7 @@ public class UI {
 
 					ArrayList<NameServicePair>list =Search.search(serviceName);
 					if(list.size()==0) {
-						System.out.println("This service not available!");
+						System.out.println("This service is not available!");
 					}else {
 						SavedData.getObj().services.get(list.get(0).name).serve();
 						break;

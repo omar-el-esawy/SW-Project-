@@ -12,12 +12,25 @@ import service.Service;
 
 public class SavedData {
 	
+	public  Map<String, Map<Integer,ServiceStatePair>> usersCompleteService = new HashMap<String,Map<Integer,ServiceStatePair>>(); 
+	
+	public Map<String, Service> services = new HashMap<String, Service>();
+	
+	public Map<Integer,User> refundServices=new HashMap<Integer, User>();
+	
+	public Map<Integer,ServiceProvider> providers=new HashMap<Integer, ServiceProvider>();
+	
+	public Map<String, User> userData = new HashMap<String, User>();
+	
 	public static SavedData getObj(){
 		if(savedData==null)savedData = new SavedData();
 		
 		return savedData;
 	}
 	
+	public Map<String, User> getUserData(){
+		return userData;
+	}
 	private SavedData() {
 		services.put("MobileRecharge", new MobileRechargeService());
 		services.put("InternetPayment", new InternetPaymentService());
@@ -32,15 +45,7 @@ public class SavedData {
 	public void setUsersCompleteService(Map<Integer,ServiceStatePair> userCompliete) {
 		usersCompleteService.put(Account.user.email,userCompliete);
 	}
-	public Map<String, User> userData = new HashMap<String, User>();
 
-	public  Map<String, Map<Integer,ServiceStatePair>> usersCompleteService = new HashMap<String,Map<Integer,ServiceStatePair>>(); 
-
-	public Map<String, Service> services = new HashMap<String, Service>();
-	
-	public Map<Integer,User> refundServices=new HashMap<Integer, User>();
-	
-	public Map<Integer,ServiceProvider> providers=new HashMap<Integer, ServiceProvider>();
 
 	
 	private static SavedData savedData = null;

@@ -111,8 +111,8 @@ public class User {
 		System.out.println("Enter the amount you want to add: ");
 		int amount = new Scanner(System.in).nextInt();
 		if(myCrditCard.balance>=amount) {
-			myCrditCard.balance-=amount;
-			myWallet.balance+=amount;
+			myCrditCard.spend(amount);
+			myWallet.add(amount);
 			System.out.println("Done Successfully..");
 
 		}else
