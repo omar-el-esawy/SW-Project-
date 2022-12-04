@@ -21,7 +21,6 @@ public class SavedData {
 		services.put("InternetPayment", new InternetPaymentService());
 		services.put("Landline", new LandlineService());
 		services.put("Donation", new DonationService());
-		System.out.println(services.get("MobileRecharge").getName());
 	}
 	
 	public Map<Integer,Service> getUsersCompleteService() {

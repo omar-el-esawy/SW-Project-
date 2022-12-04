@@ -1,8 +1,10 @@
+import java.nio.channels.NonWritableChannelException;
 import java.util.*;
 
 import Data.SavedData;
 import Screen.Invoker;
 import Screen.Login;
+import Screen.Pair;
 import Screen.Register;
 import Screen.UI;
 import admin.Admin;
@@ -45,9 +47,18 @@ public class Main {
 					UI.userOptions();
 					int userChoice=cin.nextInt();
 					if(userChoice==1) {
-						Account.user.getMyWallet().add(20);
-						SavedData.getObj().services.get("MobileRecharge").serve();
-						//Search.showSearchResult("Mobile");
+						String serviceName=new Scanner(System.in).next();
+						ArrayList<Pair>list =Search.showSearchResult(serviceName);
+						if(list.size()==1) {
+							SavedData.getObj().services.get(list.get(0).name).serve();
+				
+						}else {
+							System.out.println("Enter The Name of The Service: ");
+							serviceName=new Scanner(System.in).next();
+							Search.showSearchResult(serviceName);
+							
+						}
+						
 					}
 					else if(userChoice ==2) {
 						Account.user.showRefunds();
