@@ -11,7 +11,6 @@ public abstract class ServiceDecorator extends Service{
     double newDiscount=0.0;
     
     ServiceDecorator(Service service){
-    	System.out.println(service.getName());
         this.service= service;
     	this.id = service.id;
     	this.cost = service.cost;

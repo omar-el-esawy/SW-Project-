@@ -7,10 +7,8 @@ public class ServiceFactory {
             return new MobileRechargeService();
         else if (serviceType.equals("InternetPayment"))
             return new InternetPaymentService();
-
         else if (serviceType.equals("Donation"))
             return new DonationService();
-
         else if (serviceType.equals("Landline"))
             return new LandlineService();
         else

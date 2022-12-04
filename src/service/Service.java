@@ -50,7 +50,6 @@ public abstract class Service {
     
     public void setProvider() {
     	FactoryOfServiceProviderFactory factoryOfServiceProviderFactory =new FactoryOfServiceProviderFactory();
-    	System.out.println(getName());
     	ServiceProviderFactory serviceProviderFactory=factoryOfServiceProviderFactory.create(getName());
     	provider = serviceProviderFactory.create();
     }
@@ -77,7 +76,6 @@ public abstract class Service {
         setPayment();
         setProvider();
         discount=getDiscounts();
-        System.out.println(discount);
         setCost(payment.pay(discount));        
         if(cost!=-1) {
         	Account.user.addCompeleteServices(this);
@@ -91,16 +89,12 @@ public abstract class Service {
     abstract public String getName();
     
     public void getInfo() {
-    	System.out.println("Id: "+id);
-    	System.out.println("Payment: "+payment.getName());
-    	System.out.println("Provider: "+provider.getName());
+    	System.out.println("Service Name: "+this.getName());
+    	System.out.println("Service Id: "+id);
+    	System.out.println("Payment Way: "+payment.getName());
+    	System.out.println("Service Provider: "+provider.getName());
     	System.out.println("Discounts: "+getDiscounts());
-    	System.out.println("Cost: "+cost);
-    	System.out.println("Cash: "+this.getCash());
-    	System.out.println("Name: "+this.getName());
-
-
-
+    	System.out.println("Service Cost: "+cost);
     }
 
 
