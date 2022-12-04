@@ -110,7 +110,7 @@ public class User {
 	public void addMoneyToWallet() {
 		System.out.println("Enter the amount you want to add: ");
 		int amount = new Scanner(System.in).nextInt();
-		if(myCrditCard.balance>=amount) {
+		if(myCrditCard.getBalance()>=amount) {
 			myCrditCard.spend(amount);
 			myWallet.add(amount);
 			System.out.println("Done Successfully..");
