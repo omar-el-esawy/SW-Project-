@@ -47,23 +47,35 @@ public class Main {
 					UI.userOptions();
 					int userChoice=cin.nextInt();
 					if(userChoice==1) {
-						String serviceName=new Scanner(System.in).next();
-						ArrayList<Pair>list =Search.showSearchResult(serviceName);
-						if(list.size()==1) {
-							SavedData.getObj().services.get(list.get(0).name).serve();
-				
-						}else {
-							System.out.println("Enter The Name of The Service: ");
-							serviceName=new Scanner(System.in).next();
-							Search.showSearchResult(serviceName);
-							
+						while(true) {	
+							System.out.println("search about the service [Enter the name of service]");
+							String serviceName=new Scanner(System.in).next();
+							ArrayList<Pair>list =Search.search(serviceName);
+							if(list.size()==0) {
+								System.out.println("This service not available!");
+							}
+							else if(list.size()==1) {
+								System.out.println("Your service is: "+list.get(0).name);
+								SavedData.getObj().services.get(list.get(0).name).serve();
+								break;
+							}else {
+								System.out.println("Enter The Name of The Service: ");
+								Search.showSearchResult(list);
+								serviceName=new Scanner(System.in).next();
+								SavedData.getObj().services.get(serviceName).serve();
+								break;
+							}
 						}
 						
 					}
 					else if(userChoice ==2) {
-						Account.user.showRefunds();
-						int id = cin.nextInt();
-						Account.user.refund(id);
+						while(true) {
+							Account.user.showRefunds();
+							int id = cin.nextInt();
+							boolean success1 = Account.user.refund(id);
+							if(success1)break;
+						}
+						
 					}
 					else if(userChoice==4) {
 						System.out.println("Enter the amount you want to add");

@@ -9,7 +9,7 @@ import provider.ServiceProviderFactory;
 import user.Account;
 
 public abstract class Service {
-	public int id;
+	static public int id;
 	public double cost;
 	Payment payment=new CreditPayment();
     Double discount=0.0;
@@ -79,11 +79,11 @@ public abstract class Service {
         setCost(payment.pay(discount));        
         if(cost!=-1) {
         	Account.user.addCompeleteServices(this);
+        	getInfo();
         	setId(id+1);	
         }
         else 
             setCost(0);        
-        getInfo();
 
     }
     abstract public String getName();

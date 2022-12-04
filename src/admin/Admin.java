@@ -20,9 +20,14 @@ public class Admin {
 		if(serviceName=="All") {
 			
 			for(Map.Entry<String,Service> service :SavedData.getObj().services.entrySet()) {
-				 Service discountService = new DiscountDecorator(SavedData.getObj().services.get(service.getKey()));
-			     discountService.setDiscount(discount);
-			     SavedData.getObj().services.put(service.getKey(),discountService);
+//				 Service discountService = new DiscountDecorator(SavedData.getObj().services.get(service.getKey()));
+//			     discountService.setDiscount(discount);
+//			     SavedData.getObj().services.put(service.getKey(),discountService);
+			     
+			     Service discountService = new DiscountDecorator(service.getValue());
+				 System.out.println(Search.search(service.getValue().getName()).get(0).service.getName());
+				 discountService.setDiscount(discount);
+			     SavedData.getObj().services.put(service.getValue().getName(),discountService);
 			}
 		}
 		else 

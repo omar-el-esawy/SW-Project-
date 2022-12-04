@@ -17,6 +17,7 @@ public class User {
 		this.passwrod = password;
 		myWallet = new Wallet();
 		myCrditCard = new CreditCard();
+		myCrditCard.add(1000);
 		completeServices = new HashMap<Integer,Service>();
 	}
 
@@ -32,12 +33,18 @@ public class User {
 	}
 	public void showRefunds() {
 		for(Map.Entry<Integer,Service> current :completeServices.entrySet()) {
-			 System.out.println(current.getKey()+ " "  + current.getValue().getName() );
+			 System.out.println("ID:"+current.getKey()+ "\t Service Name: "  + current.getValue().getName() );
 		}
+		System.out.println("Enter service's ID : ");
 	}
-	public void refund(Integer ID) {	
+	public boolean refund(Integer ID) {	
+		if(!completeServices.containsKey(ID)) {
+			System.out.println("Invalid service !");
+			return false;
+		}
 		SavedData.getObj().refundServices.put(ID,Account.user);
 		System.out.println("Your request is pending... ");
+		return true;
 	}
 	public void addMoneyToWallet(double amount) {
 		if(myCrditCard.balance>=amount) {
