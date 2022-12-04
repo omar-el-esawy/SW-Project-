@@ -12,7 +12,7 @@ public abstract class ServiceDecorator extends Service{
     
     ServiceDecorator(Service service){
         this.service= service;
-    	this.id = service.id;
+    	//this.id = service.id;
     	this.cost = service.cost;
     	this.payment=service.payment;
         this.discount=service.discount;

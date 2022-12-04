@@ -16,9 +16,9 @@ public class CreditPayment implements Payment {
 			amount= new Scanner(System.in).nextDouble();
 		}
 		double amountAfterDiscounts = (1-discount)*amount;
-		if(Account.user.getCard().getBalance()>=amountAfterDiscounts+5) {
-			Account.user.getCard().spend(amountAfterDiscounts+5);
-			return amountAfterDiscounts+5;	
+		if(Account.user.getCard().getBalance()>=amountAfterDiscounts+getTaxes()) {
+			Account.user.getCard().spend(amountAfterDiscounts+getTaxes());
+			return amountAfterDiscounts+getTaxes();	
 		}
 		else {
 			System.out.println("There is Not Enough Money");
@@ -32,6 +32,11 @@ public class CreditPayment implements Payment {
 	public String getName() {
 		return "CreditCardPayment";
 		
+	}
+
+	@Override
+	public double getTaxes() {
+		return 5;
 	}
 
 }

@@ -16,9 +16,9 @@ public class WalletPayment implements Payment{
 			amount= new Scanner(System.in).nextDouble();
 		}
 		double amountAfterDiscounts = (1-discount)*amount;
-		if(Account.user.getMyWallet().getBalance()>=amountAfterDiscounts+1) {
-			Account.user.getMyWallet().spend(amountAfterDiscounts+1);
-			return amountAfterDiscounts+1;
+		if(Account.user.getMyWallet().getBalance()>=amountAfterDiscounts+getTaxes()) {
+			Account.user.getMyWallet().spend(amountAfterDiscounts+getTaxes());
+			return amountAfterDiscounts+getTaxes();
 		}
 		else {
 			System.out.println("There is Not Enough Money");
@@ -31,5 +31,10 @@ public class WalletPayment implements Payment{
 	public String getName() {
 		return "WalletPayment";
 		
+	}
+
+	@Override
+	public double getTaxes() {
+		return 1;
 	}
 }

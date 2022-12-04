@@ -93,8 +93,9 @@ public abstract class Service {
     	System.out.println("Service Id: "+id);
     	System.out.println("Payment Way: "+payment.getName());
     	System.out.println("Service Provider: "+provider.getName());
-    	System.out.println("Discounts: "+getDiscounts());
-    	System.out.println("Service Cost: "+cost);
+    	System.out.println("Discounts: "+getDiscounts()*100+"%");
+    	System.out.println("Payment Taxes: "+payment.getTaxes()+"LE");
+    	System.out.println("Service Total Cost: "+cost+"LE");
     }
 
 

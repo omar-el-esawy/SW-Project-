@@ -1,6 +1,8 @@
 package admin;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Scanner;
 
 import Data.SavedData;
@@ -16,24 +18,20 @@ public class Admin {
 		String serviceName= new Scanner(System.in).next();
 		System.out.println("Enter Discount Percentage");
 		int discount= new Scanner(System.in).nextInt();
-		System.out.println(serviceName);
-		if(serviceName=="All") {
+		if(serviceName.equals("All")) {
+			Iterator<Entry<String, Service>> it = SavedData.getObj().services.entrySet().iterator();
+			while(it.hasNext()) {
+				Map.Entry<String,Service> service = (Map.Entry<String,Service>)it.next();
 			
-			for(Map.Entry<String,Service> service :SavedData.getObj().services.entrySet()) {
-//				 Service discountService = new DiscountDecorator(SavedData.getObj().services.get(service.getKey()));
-//			     discountService.setDiscount(discount);
-//			     SavedData.getObj().services.put(service.getKey(),discountService);
-			     
 			     Service discountService = new DiscountDecorator(service.getValue());
-				 System.out.println(Search.search(service.getValue().getName()).get(0).service.getName());
 				 discountService.setDiscount(discount);
-			     SavedData.getObj().services.put(service.getValue().getName(),discountService);
+			     SavedData.getObj().services.replace(service.getKey(),discountService);     
 			}
+			
 		}
 		else 
 		{
 			 Service discountService = new DiscountDecorator(SavedData.getObj().services.get(serviceName));
-			 System.out.println(Search.search(serviceName).get(0).service.getName());
 			 discountService.setDiscount(discount);
 		     SavedData.getObj().services.put(serviceName,discountService);
 		}

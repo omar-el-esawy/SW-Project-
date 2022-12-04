@@ -23,4 +23,9 @@ public class CashPaymnet implements Payment{
 		
 	}
 
+	@Override
+	public double getTaxes() {
+		return 0;
+	}
+
 }
