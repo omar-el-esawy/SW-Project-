@@ -34,7 +34,7 @@ public class User {
 		SavedData.getObj().setUsersCompleteService(completeServices);
 	}
 	public void showRefunds() {
-		System.out.println("Press 1. Show Complete Services");
+		System.out.println("Press 1. Show Complete Services and make refund request");
 		System.out.println("Press 2. Show Pending Services");
 		System.out.println("Press 3. Show Accepted Services");
 		System.out.println("Press 4. Show Rejected Services");
