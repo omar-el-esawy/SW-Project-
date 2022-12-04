@@ -1,10 +1,17 @@
 package provider;
 
-public class CancerHospital implements ServiceProvider{
+public class CancerHospital extends ServiceProvider{
 
 	@Override
 	public String getName() {
 		return "CancerHospital";
 	}
+
+	@Override
+	public void setInfo(double amount) {
+		money+=amount;		
+	}
+
+
 
 }

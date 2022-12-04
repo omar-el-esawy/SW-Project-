@@ -79,6 +79,7 @@ public abstract class Service {
         setCost(payment.pay(discount));        
         if(cost!=-1) {
         	Account.user.addCompeleteServices(this);
+        	provider.setInfo(payment.getAmount());
         	getInfo();
         	setId(id+1);	
         }

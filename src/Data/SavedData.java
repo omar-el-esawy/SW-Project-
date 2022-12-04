@@ -2,6 +2,8 @@ package Data;
 import user.*;
 
 import java.util.*;
+
+import provider.ServiceProvider;
 import service.*;
 
 import service.InternetPaymentService;
@@ -37,6 +39,9 @@ public class SavedData {
 	public Map<String, Service> services = new HashMap<String, Service>();
 	
 	public Map<Integer,User> refundServices=new HashMap<Integer, User>();
+	
+	public Map<Integer,ServiceProvider> providers=new HashMap<Integer, ServiceProvider>();
+
 	
 	private static SavedData savedData = null;
 	

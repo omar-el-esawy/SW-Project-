@@ -1,11 +1,11 @@
-package Screen;
+package Data;
 
 import service.Service;
 
-public class Pair{
+public class NameServicePair{
 	public String name;
 	public Service service; 
-	public Pair(String name,Service service ){
+	public NameServicePair(String name,Service service ){
 		this.name = name;
 		this.service = service;
 	}

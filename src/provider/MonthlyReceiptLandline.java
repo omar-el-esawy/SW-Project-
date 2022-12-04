@@ -1,8 +1,21 @@
 package provider;
 
-public class MonthlyReceiptLandline implements ServiceProvider {
+import java.util.Scanner;
+
+public class MonthlyReceiptLandline extends ServiceProvider {
+	String phoneNumber;
 	@Override
 	public String getName() {
 		return "MonthlyReceiptLandline";
 	}
+	
+	
+	@Override
+	public void setInfo(double amount) {
+		System.out.println("Enter Phone Number: ");
+		phoneNumber=new Scanner(System.in).next();
+		money+=amount;
+	}
+
+	
 }

@@ -25,7 +25,7 @@ public class UI {
 	public static void adminOptions() {
 		System.out.println("Press 1. addDiscount");
 		System.out.println("Press 2. showRefund");
-		System.out.println("Press 3. avaliablityCash");
+		System.out.println("Press 3. CashAvaliablity");
 		System.out.println("press 4. To exit");
 	}
 	
@@ -34,7 +34,7 @@ public class UI {
 		System.out.println("InternetPayment");
 		System.out.println("Landline");
 		System.out.println("Donation");
-		System.out.println("All");
+		//System.out.println("All");
 	}
 	
 	

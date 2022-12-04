@@ -3,25 +3,25 @@ package service;
 import java.util.ArrayList;
 import java.util.Map;
 
+import Data.NameServicePair;
 import Data.SavedData;
-import Screen.Pair;
 
 public class Search {
 
 	
-	static public ArrayList<Pair> search(String id) {
-		ArrayList<Pair> searchResult = new ArrayList<Pair>();
+	static public ArrayList<NameServicePair> search(String id) {
+		ArrayList<NameServicePair> searchResult = new ArrayList<NameServicePair>();
 		
 		for(Map.Entry<String, Service> service : SavedData.getObj().services.entrySet()) {
 			if(service.getKey().contains(id)) {				
-				searchResult.add(new Pair(service.getKey(), service.getValue() ) );
+				searchResult.add(new NameServicePair(service.getKey(), service.getValue() ) );
 				
 			}
 		}
 		return searchResult;
 	}
 	
-	static public void showSearchResult(ArrayList<Pair>searchResult) {
+	static public void showSearchResult(ArrayList<NameServicePair>searchResult) {
 		for(int i =0 ;i<searchResult.size();i++) {
 			System.out.println(searchResult.get(i).name);
 		}		

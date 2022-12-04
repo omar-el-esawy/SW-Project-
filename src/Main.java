@@ -1,10 +1,10 @@
 import java.nio.channels.NonWritableChannelException;
 import java.util.*;
 
+import Data.NameServicePair;
 import Data.SavedData;
 import Screen.Invoker;
 import Screen.Login;
-import Screen.Pair;
 import Screen.Register;
 import Screen.UI;
 import admin.Admin;
@@ -50,7 +50,7 @@ public class Main {
 						while(true) {	
 							System.out.println("search about the service [Enter the name of service]");
 							String serviceName=new Scanner(System.in).next();
-							ArrayList<Pair>list =Search.search(serviceName);
+							ArrayList<NameServicePair>list =Search.search(serviceName);
 							if(list.size()==0) {
 								System.out.println("This service not available!");
 							}
@@ -111,7 +111,7 @@ public class Main {
 			}
 			else if(adminChoice==3) {
 				Admin admin = new Admin();
-				admin.avaliablityCash();
+				admin.cashAvaliablity();
 			}
 			else 
 				System.out.println("Invalid input, You should choose from admin's options! ");

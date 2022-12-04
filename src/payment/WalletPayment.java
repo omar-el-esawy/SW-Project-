@@ -5,11 +5,12 @@ import java.util.Scanner;
 import user.Account;
 
 public class WalletPayment implements Payment{
-
+	
+	public double amount=0.0;
 	@Override
 	public double pay(double discount) {
 		System.out.println("Enter The Amount: ");
-		double  amount= new Scanner(System.in).nextDouble();
+		amount= new Scanner(System.in).nextDouble();
 		while(amount<0.0) {
 			System.out.println("Invalid Input!!");
 			System.out.println("Enter The Amount Again: ");
@@ -36,5 +37,10 @@ public class WalletPayment implements Payment{
 	@Override
 	public double getTaxes() {
 		return 1;
+	}
+
+	@Override
+	public double getAmount() {
+		return amount;
 	}
 }
