@@ -27,6 +27,4 @@ public class CreditCard {
 		this.cardNumber=cardNumber;
 	}
 	
-	
-	
 }
