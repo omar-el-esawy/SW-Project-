@@ -5,7 +5,7 @@ import Data.SavedData;
 import service.*;
 public class User {
 	public String email; 
-	String userName;
+	public String userName;
 	String passwrod;
 	CreditCard myCrditCard;
 	Wallet myWallet;
