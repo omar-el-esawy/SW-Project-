@@ -43,7 +43,7 @@ public class Main {
 					if(!success)System.out.println(" eamil or password not correct!, please try again");
 				}
 				while(true) {
-					System.out.println("Name: " + Account.user.userName + "\t\t balance: "+Account.user.getMyWallet().getBalance()); 
+					System.out.println("Name: " + Account.user.userName + "\nbalance: "+Account.user.getMyWallet().getBalance()+"\n"); 
 					UI.userOptions();
 					int userChoice=cin.nextInt();
 					if(userChoice==1) {
