@@ -54,6 +54,12 @@ public class Main {
 						int id = cin.nextInt();
 						Account.user.refund(id);
 					}
+					else if(userChoice==4) {
+						System.out.println("Enter the amount you want to add");
+						int amount = cin.nextInt();
+						Account.user.addMoneyToWallet(amount);
+					}
+					else if(userChoice==3)Account.user.showDiscounts();
 					else if(userChoice==5)appSteps();
 					else 
 						System.out.println("Invalid input, You should choose from user's options!");

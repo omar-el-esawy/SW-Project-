@@ -13,7 +13,7 @@ public class PaymentFactory {
 			System.out.println("Press 3. Cash");	
 		String paymentType= new Scanner(System.in).next();
 		
-		while(!(paymentType.equals("1")&&paymentType.equals("2")&&((paymentType.equals("3")&&cach)||(!cach)))) {
+		while(!(paymentType.equals("1")||paymentType.equals("2")||((paymentType.equals("3")&&cach)||(!cach)))) {
 			System.out.println("Invalid Input!!");
 			System.out.println("Choose Payment Way Again:");
 			System.out.println("Press 1. Credit Card");

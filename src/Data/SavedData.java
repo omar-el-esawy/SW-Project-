@@ -15,6 +15,7 @@ public class SavedData {
 		
 		return savedData;
 	}
+	
 	private SavedData() {
 		services.put("MobileRecharge", new MobileRechargeService());
 		services.put("InternetPayment", new InternetPaymentService());
@@ -22,24 +23,22 @@ public class SavedData {
 		services.put("Donation", new DonationService());
 		System.out.println(services.get("MobileRecharge").getName());
 	}
+	
 	public Map<Integer,Service> getUsersCompleteService() {
 		return usersCompleteService.get(Account.user.email);
 	}
+	
 	public void setUsersCompleteService(Map<Integer,Service> userCompliete) {
 		usersCompleteService.put(Account.user.email,userCompliete);
 	}
 	public Map<String, User> userData = new HashMap<String, User>();
 
-//	public Map<String,ArrayList<Service>> usersCompleteService = new HashMap<String,ArrayList<Service>>(); 
 	public  Map<String, Map<Integer,Service>> usersCompleteService = new HashMap<String,Map<Integer,Service>>(); 
 
 	public Map<String, Service> services = new HashMap<String, Service>();
 	
 	public Map<Integer,User> refundServices=new HashMap<Integer, User>();
 	
-
 	private static SavedData savedData = null;
-	
-	
 	
 }

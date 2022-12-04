@@ -10,7 +10,7 @@ public class User {
 	CreditCard myCrditCard;
 	Wallet myWallet;
 	Map<Integer,Service> completeServices;
-	
+
 	public User(String email,String userName,String password) {
 		this.email = email;
 		this.userName = userName;
@@ -30,14 +30,12 @@ public class User {
 		completeServices.put(service.id, service);
 		SavedData.getObj().setUsersCompleteService(completeServices);
 	}
-//	searchService(){}
 	public void showRefunds() {
 		for(Map.Entry<Integer,Service> current :completeServices.entrySet()) {
 			 System.out.println(current.getKey()+ " "  + current.getValue().getName() );
 		}
 	}
-	public void refund(Integer ID) {
-		
+	public void refund(Integer ID) {	
 		SavedData.getObj().refundServices.put(ID,Account.user);
 		System.out.println("Your request is pending... ");
 	}
@@ -61,7 +59,4 @@ public class User {
 				System.out.println("There is no discounts..");
 			
 	}
-	
-	
-	void addFundsToWallet(double amount) {}
 }

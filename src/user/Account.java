@@ -20,17 +20,14 @@ public class Account {
 		if(saveData.userData.containsKey(email))
 		{
 			user = saveData.userData.get(email) ;
-			//user.completeServices = saveData.usersCompleteService.get(email);
 			if(user.passwrod.equals(password))
 				return true;
 			else 
 				return false;
 		}
 		else return false;
-		
 	}
 	public boolean signUp(String userName,String email,String password) {
-		
 		if(!saveData.userData.containsKey(email) && !saveData.userData.containsKey(userName)) {
 			User user = new User(email,userName,password); 
 			saveData.userData.put(email, user);
