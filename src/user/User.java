@@ -42,7 +42,7 @@ public class User {
 		int empty=0;
 		if(option==1) {
 			for(Map.Entry<Integer,ServiceStatePair> current :completeServices.entrySet()) {
-				if(current.getValue().state==0)
+				if(current.getValue().getState()==0)
 				{
 					 System.out.println("ID:"+current.getKey()+ "\t Service Name: "  + current.getValue().service.getName() );
 					 empty++;
@@ -57,7 +57,7 @@ public class User {
 					System.out.println("Enter service's ID : ");
 					int id = new Scanner(System.in).nextInt();
 					boolean success1 = Account.user.refund(id);
-					completeServices.get(id).state=2;
+					completeServices.get(id).setState(2);
 					if(success1)
 						break;
 				}
@@ -67,7 +67,7 @@ public class User {
 			
 		}else if(option==2) {
 			for(Map.Entry<Integer,ServiceStatePair> current :completeServices.entrySet()) {
-				if(current.getValue().state==2) {
+				if(current.getValue().getState()==2) {
 					 System.out.println("ID:"+current.getKey()+ "\t Service Name: "  + current.getValue().service.getName() );
 					 empty++;
 				}
@@ -78,7 +78,7 @@ public class User {
 				
 		}else if(option==3) {
 			for(Map.Entry<Integer,ServiceStatePair> current :completeServices.entrySet()) {
-				if(current.getValue().state==1) {
+				if(current.getValue().getState()==1) {
 					 System.out.println("ID:"+current.getKey()+ "\t Service Name: "  + current.getValue().service.getName() );
 					 empty++;
 				}
@@ -88,7 +88,7 @@ public class User {
 			
 		}else if(option==4) {
 			for(Map.Entry<Integer,ServiceStatePair> current :completeServices.entrySet()) {
-				if(current.getValue().state==-1) {
+				if(current.getValue().getState()==-1) {
 					 System.out.println("ID:"+current.getKey()+ "\t Service Name: "  + current.getValue().service.getName() );
 					 empty++;
 				}

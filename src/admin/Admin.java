@@ -48,10 +48,10 @@ public class Admin {
 		if(op==1) {
 			Map<Integer,ServiceStatePair> current=obj.usersCompleteService.get(user.email);
 			user.getMyWallet().add(current.get(id).service.cost);
-			obj.usersCompleteService.get(user.email).get(id).state=1;
+			obj.usersCompleteService.get(user.email).get(id).setState(1);
 		}else {
 			
-			obj.usersCompleteService.get(user.email).get(id).state=-1;
+			obj.usersCompleteService.get(user.email).get(id).setState(-1);
 
 		}
 		obj.getRefundService().remove(id);
