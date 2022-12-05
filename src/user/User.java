@@ -103,16 +103,16 @@ public class User {
 			System.out.println("Invalid service !");
 			return false;
 		}
-		SavedData.getObj().refundServices.put(ID,Account.user);
+		SavedData.getObj().getRefundService().put(ID,Account.user);
 		System.out.println("Your request is pending... ");
 		return true;
 	}
 	public void addMoneyToWallet() {
 		System.out.println("Enter the amount you want to add: ");
 		int amount = new Scanner(System.in).nextInt();
-		if(myCrditCard.balance>=amount) {
-			myCrditCard.balance-=amount;
-			myWallet.balance+=amount;
+		if(myCrditCard.getBalance()>=amount) {
+			myCrditCard.spend(amount);
+			myWallet.add(amount);
 			System.out.println("Done Successfully..");
 
 		}else

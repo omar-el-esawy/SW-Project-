@@ -25,7 +25,7 @@ public class Admin {
 	{
 		Scanner cin = new Scanner(System.in);
 		SavedData obj=SavedData.getObj();
-		for(Map.Entry<Integer,User> currentRefund:SavedData.getObj().refundServices.entrySet())
+		for(Map.Entry<Integer,User> currentRefund:SavedData.getObj().getRefundService().entrySet())
 		{
 			System.out.print(currentRefund.getKey()+" ");
 			int Id=currentRefund.getKey();
@@ -44,7 +44,7 @@ public class Admin {
 			op = cin.nextInt();
 			
 		}
-		User user= obj.refundServices.get(id);
+		User user= obj.getRefundService().get(id);
 		if(op==1) {
 			Map<Integer,ServiceStatePair> current=obj.usersCompleteService.get(user.email);
 			user.getMyWallet().add(current.get(id).service.cost);
@@ -54,7 +54,7 @@ public class Admin {
 			obj.usersCompleteService.get(user.email).get(id).state=-1;
 
 		}
-		obj.refundServices.remove(id);
+		obj.getRefundService().remove(id);
 	}
 	
 	public void cashAvaliablity()
