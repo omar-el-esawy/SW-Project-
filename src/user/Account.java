@@ -28,10 +28,10 @@ public class Account {
 		else return false;
 	}
 	public boolean signUp(String userName,String email,String password) {
-		if(!saveData.userData.containsKey(email) && !saveData.userData.containsKey(userName)) {
+		if(!saveData.getUserData().containsKey(email) && !saveData.getUserData().containsKey(userName)) {
 			User user = new User(email,userName,password); 
-			saveData.userData.put(email, user);
-			saveData.userData.put(userName, user);
+			saveData.getUserData().put(email, user);
+			saveData.getUserData().put(userName, user);
 			return true;
 		}
 		else return false;

@@ -16,7 +16,7 @@ public class Main {
 	static Scanner cin = new Scanner(System.in);	
 	public static void main(String[] args) {
 		User user = new User("d","doha","123");
-		SavedData.getObj().userData.put("d",user);
+		SavedData.getObj().getUserData().put("d",user);
 		UI.appSteps();
 		
 		

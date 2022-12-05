@@ -16,11 +16,24 @@ public class SavedData {
 	
 	public Map<String, Service> services = new HashMap<String, Service>();
 	
-	public Map<Integer,User> refundServices=new HashMap<Integer, User>();
+	private Map<Integer,User> refundServices=new HashMap<Integer, User>();
+		
+	private Map<String, User> userData = new HashMap<String, User>();
 	
-	public Map<Integer,ServiceProvider> providers=new HashMap<Integer, ServiceProvider>();
+	private static SavedData savedData = null;
 	
-	public Map<String, User> userData = new HashMap<String, User>();
+	
+	
+	public Map<Integer,User> getRefundService(){
+		return refundServices;
+	}
+	private SavedData() {
+		services.put("MobileRecharge", new MobileRechargeService());
+		services.put("InternetPayment", new InternetPaymentService());
+		services.put("Landline", new LandlineService());
+		services.put("Donation", new DonationService());
+	}
+	
 	
 	public static SavedData getObj(){
 		if(savedData==null)savedData = new SavedData();
@@ -31,12 +44,6 @@ public class SavedData {
 	public Map<String, User> getUserData(){
 		return userData;
 	}
-	private SavedData() {
-		services.put("MobileRecharge", new MobileRechargeService());
-		services.put("InternetPayment", new InternetPaymentService());
-		services.put("Landline", new LandlineService());
-		services.put("Donation", new DonationService());
-	}
 	
 	public Map<Integer,ServiceStatePair> getUsersCompleteService() {
 		return usersCompleteService.get(Account.user.email);
@@ -46,8 +53,6 @@ public class SavedData {
 		usersCompleteService.put(Account.user.email,userCompliete);
 	}
 
-
 	
-	private static SavedData savedData = null;
 	
 }
